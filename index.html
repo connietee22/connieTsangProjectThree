@@ -4,9 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Connie Tsang - Project Three</title>
+    <!-- google font imports -->
+    <link href="https://fonts.googleapis.com/css2?family=McLaren&family=Roboto:wght@300;700&display=swap" rel="stylesheet">
+    <!-- stylesheet import -->
+    <link rel="stylesheet" href="./styles/style.css">
 </head>
 <body>
-    <h1>Help find Oscar!</h1>
+    <main>
+        <header>
+            <h1>Dumpling Locator</h1>
+            <h2>Dumpling suggestions from our top-notch international-dumpling research team 🥟</h2>
+        </header>
+        
+
+        <form>
+            <div class="cookingStyle">
+                <div>
+                    <input type="radio" id="boiled" aria-hidden="true" value="boiled">
+                    <label for="boiled" aria-label="click to select boiled dumpling">Boiled</label>
+                </div>
+                <div>
+                    <input type="radio" id="fried" aria-hidden="true" value="fried">
+                    <label for="fried" aria-label="click to select fried dumpling">Fried</label> 
+                </div>
+            </div>
+        </form>
+
+    </main>
 
     <script src='https://code.jquery.com/jquery-3.5.1.min.js'integrity='sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0='crossorigin='anonymous'></script>
     <script src="script.js"></script>
