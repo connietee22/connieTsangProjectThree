@@ -14,15 +14,25 @@ html {
     font-size: 62.5%;
 }
 
-h1 {
+
+a:hover {
+    // from emojicursor.app* - Made by Kyle Kelly
+    cursor:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'  width='40' height='48' viewport='0 0 100 100' style='fill:black;font-size:24px;'><text y='50%'>🥟</text></svg>") 16 0,auto;
+} 
+
+h1,
+p {
     font-family: 'McLaren', cursive;
-    font-size: 5.5rem;
     text-transform: uppercase;
-    padding-bottom: 30px;
+}
+
+h1 {
+    font-size: 5.5rem;
+    padding-bottom: 15px;
 }
 
 h2,
-p {
+form {
     font-family: 'Roboto', sans-serif;
 }
 
@@ -31,28 +41,51 @@ h2 {
     text-transform: lowercase;
     font-weight: 300;
     width: 500px;
-    text-align: center;
 }
 
-label,
-p {
-    font-size: 2rem;
-    font-weight: 300;
-    text-transform: lowercase;
+form {
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    label {
+        vertical-align: middle;
+    }
+    p {
+        font-size: 3rem;
+        font-weight: 300;
+    }
 }
 
 header {
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
     height: 100vh;
+    img {
+        width: 200px;
+    }
+    .headerText {
+        display: flex;
+        flex-direction: column;
+        width: 400px;
+        margin-left: 15px;
+    }
 }
 
-.cookingStyle {
+.filter {
     display: flex;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
+    background-color: #a48c63;
+    color: #fff;
+    height: 100vh;
     div {
         padding: 20px;
     }
 }
+
+.radioButtonContainer {
+    display: flex;
+}
+
+

@@ -1,3 +1,4 @@
+@charset "UTF-8";
 a, abbr, acronym, address, applet, article, aside, audio, b, big, blockquote, body, canvas, caption, center, cite, code, dd, del, details, dfn, div, dl, dt, em, embed, fieldset, figcaption, figure, footer, form, h1, h2, h3, h4, h5, h6, header, hgroup, html, i, iframe, img, ins, kbd, label, legend, li, mark, menu, nav, object, ol, output, p, pre, q, ruby, s, samp, section, small, span, strike, strong, sub, summary, sup, table, tbody, td, tfoot, th, thead, time, tr, tt, u, ul, var, video {
   margin: 0;
   padding: 0;
@@ -227,15 +228,23 @@ html {
   font-size: 62.5%;
 }
 
-h1 {
+a:hover {
+  cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'  width='40' height='48' viewport='0 0 100 100' style='fill:black;font-size:24px;'><text y='50%'>🥟</text></svg>") 16 0, auto;
+}
+
+h1,
+p {
   font-family: 'McLaren', cursive;
-  font-size: 5.5rem;
   text-transform: uppercase;
-  padding-bottom: 30px;
+}
+
+h1 {
+  font-size: 5.5rem;
+  padding-bottom: 15px;
 }
 
 h2,
-p {
+form {
   font-family: 'Roboto', sans-serif;
 }
 
@@ -244,24 +253,26 @@ h2 {
   text-transform: lowercase;
   font-weight: 300;
   width: 500px;
-  text-align: center;
 }
 
-label,
-p {
-  font-size: 2rem;
+form {
+  font-size: 2.5rem;
+  text-transform: uppercase;
+}
+
+form label {
+  vertical-align: middle;
+}
+
+form p {
+  font-size: 3rem;
   font-weight: 300;
-  text-transform: lowercase;
 }
 
 header {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -271,15 +282,47 @@ header {
   height: 100vh;
 }
 
-.cookingStyle {
+header img {
+  width: 200px;
+}
+
+header .headerText {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 400px;
+  margin-left: 15px;
+}
+
+.filter {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  background-color: #a48c63;
+  color: #fff;
+  height: 100vh;
 }
 
-.cookingStyle div {
+.filter div {
   padding: 20px;
+}
+
+.radioButtonContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }

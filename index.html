@@ -12,19 +12,25 @@
 <body>
     <main>
         <header>
-            <h1>Gimme a dumpling!</h1>
-            <h2>Dumpling suggestions from our international team of dumpling researchers 🥟</h2>
+            <img src="assets/dumplingVecteezy.png" alt="an excited anthropomorphized dumpling">
+            <div class="headerText">
+                <h1>Gimme a dumpling!</h1>
+                <h2><a href="#startJourney">Follow me</a> and let's find you a new kind of dumpling!</h2>
+            </div>
         </header>
         
         <form>
-            <div class="cookingStyle">
-                <div>
-                    <input type="radio" id="boiled" aria-hidden="true" value="boiled">
-                    <label for="boiled" aria-label="click to select boiled dumpling">Boiled</label>
-                </div>
-                <div>
-                    <input type="radio" id="fried" aria-hidden="true" value="fried">
-                    <label for="fried" aria-label="click to select fried dumpling">Fried</label> 
+            <div id="startJourney" class="filter">
+                <p>How would you like your dumplings prepared?</p>
+                <div class="radioButtonContainer">
+                    <div>
+                        <input type="radio" id="boiled" aria-hidden="true" name="dumplingKind" value="boiled">
+                        <label for="boiled" aria-label="click to select boiled dumpling">Boiled</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="fried" name="dumplingKind" aria-hidden="true" value="fried">
+                        <label for="fried" aria-label="click to select fried dumpling">Fried</label> 
+                    </div>
                 </div>
             </div>
         </form>
