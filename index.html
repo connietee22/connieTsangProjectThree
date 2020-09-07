@@ -14,25 +14,45 @@
         <header>
             <img src="assets/dumplingVecteezy.png" alt="an excited anthropomorphized dumpling">
             <div class="headerText">
-                <h1>Gimme a dumpling!</h1>
-                <h2><a href="#startJourney">Follow me</a> and let's find you a new kind of dumpling!</h2>
+                <h1>Gimme dumplings!</h1>
+                <h2>let me find you a new kind of dumpling</h2>
+                <a href="#startJourney">Follow me!</a>
             </div>
+            <p></p>
         </header>
         
-        <form>
-            <div id="startJourney" class="filter">
+        <form id="startJourney" >
+            <section class="filter">
                 <p>How would you like your dumplings prepared?</p>
                 <div class="radioButtonContainer">
                     <div>
                         <input type="radio" id="boiled" aria-hidden="true" name="dumplingKind" value="boiled">
-                        <label for="boiled" aria-label="click to select boiled dumpling">Boiled</label>
+                        <label for="boiled" aria-label="click to select boiled dumpling">Boil 'em</label>
                     </div>
                     <div>
                         <input type="radio" id="fried" name="dumplingKind" aria-hidden="true" value="fried">
-                        <label for="fried" aria-label="click to select fried dumpling">Fried</label> 
+                        <label for="fried" aria-label="click to select fried dumpling">Fry 'em</label> 
                     </div>
                 </div>
-            </div>
+            </section>
+
+            <section class="filter whiteBg">
+                <p>Do you like meat or veg?</p>
+                <div class="radioButtonContainer">
+                    <div>
+                        <input type="radio" id="veg" aria-hidden="true" name="filling" value="veg">
+                        <label for="veg" aria-label="click to select vegetarian filling">Veggies</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="meat" name="filling" aria-hidden="true" value="meat">
+                        <label for="meat" aria-label="click to select meat filling">Meat</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="meatAndVeg" name="filling" aria-hidden="true" value="meatAndVeg">
+                        <label for="meatAndVeg" aria-label="click to select both meat and vegetarian">Surprise me</label>
+                    </div>
+                </div>
+            </section>
         </form>
 
     </main>

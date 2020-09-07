@@ -228,14 +228,13 @@ html {
   font-size: 62.5%;
 }
 
-a:hover {
-  cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'  width='40' height='48' viewport='0 0 100 100' style='fill:black;font-size:24px;'><text y='50%'>🥟</text></svg>") 16 0, auto;
-}
-
 h1,
-p {
+p,
+a {
   font-family: 'McLaren', cursive;
   text-transform: uppercase;
+  -webkit-text-decoration-style: none;
+          text-decoration-style: none;
 }
 
 h1 {
@@ -253,20 +252,7 @@ h2 {
   text-transform: lowercase;
   font-weight: 300;
   width: 500px;
-}
-
-form {
-  font-size: 2.5rem;
-  text-transform: uppercase;
-}
-
-form label {
-  vertical-align: middle;
-}
-
-form p {
-  font-size: 3rem;
-  font-weight: 300;
+  padding-bottom: 15px;
 }
 
 header {
@@ -298,6 +284,38 @@ header .headerText {
   margin-left: 15px;
 }
 
+a {
+  width: 150px;
+  padding: 15px;
+  background-color: #a48c63;
+  color: #fff;
+  text-decoration: none;
+  text-align: center;
+  border: 3px solid transparent;
+  -webkit-box-shadow: 5px 5px #f4e6b7;
+          box-shadow: 5px 5px #f4e6b7;
+}
+
+a:hover, a:focus {
+  border: 3px solid #eb6f5d;
+  cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'  width='40' height='48' viewport='0 0 100 100' style='fill:black;font-size:24px;'><text y='50%'>🥟</text></svg>") 16 0, auto;
+}
+
+section:nth-of-type(odd) {
+  background-color: #a48c63;
+  color: #fff;
+}
+
+form {
+  font-size: 2.5rem;
+  text-transform: uppercase;
+}
+
+form p {
+  font-size: 3rem;
+  font-weight: 300;
+}
+
 .filter {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -312,8 +330,6 @@ header .headerText {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  background-color: #a48c63;
-  color: #fff;
   height: 100vh;
 }
 
