@@ -228,6 +228,12 @@ html {
   font-size: 62.5%;
 }
 
+.wrapper {
+  width: 90%;
+  max-width: 1150px;
+  margin: 0 auto;
+}
+
 h1,
 p,
 a {
@@ -238,7 +244,7 @@ a {
 }
 
 h1 {
-  font-size: 5.5rem;
+  font-size: clamp(2.75rem, 3vw, 7rem);
   padding-bottom: 15px;
 }
 
@@ -248,11 +254,10 @@ form {
 }
 
 h2 {
-  font-size: 2rem;
+  font-size: clamp(1.6rem, 2vw, 3rem);
   text-transform: lowercase;
   font-weight: 300;
-  width: 500px;
-  padding-bottom: 15px;
+  padding-bottom: 20px;
 }
 
 header {
@@ -269,7 +274,7 @@ header {
 }
 
 header img {
-  width: 200px;
+  width: 275px;
 }
 
 header .headerText {
@@ -280,12 +285,14 @@ header .headerText {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  width: 400px;
-  margin-left: 15px;
+  margin-left: 30px;
+  -ms-flex-negative: 1;
+      flex-shrink: 1;
 }
 
 a {
-  width: 150px;
+  font-size: clamp(1.5rem, 2vw, 1.8rem);
+  width: 200px;
   padding: 15px;
   background-color: #a48c63;
   color: #fff;
@@ -306,14 +313,10 @@ section:nth-of-type(odd) {
   color: #fff;
 }
 
-form {
-  font-size: 2.5rem;
-  text-transform: uppercase;
-}
-
-form p {
-  font-size: 3rem;
-  font-weight: 300;
+section:nth-of-type(odd) a {
+  font-size: 1.6rem;
+  background-color: #fff;
+  color: #a48c63;
 }
 
 .filter {
@@ -337,8 +340,44 @@ form p {
   padding: 20px;
 }
 
+form {
+  font-size: 2.5rem;
+  text-transform: uppercase;
+}
+
+form p {
+  font-size: 3rem;
+  font-weight: 300;
+  text-align: center;
+}
+
 .radioButtonContainer {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+}
+
+@media (max-width: 768px) {
+  header {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    margin-left: 0;
+  }
+  header img {
+    margin-bottom: 30px;
+  }
+  header .headerText {
+    text-align: center;
+    margin-left: 0px;
+  }
+  header a {
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
+  }
 }
