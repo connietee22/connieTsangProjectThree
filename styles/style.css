@@ -228,6 +228,10 @@ html {
   font-size: 62.5%;
 }
 
+input {
+  border: 0;
+}
+
 .wrapper {
   width: 90%;
   max-width: 1150px;
@@ -236,7 +240,8 @@ html {
 
 h1,
 p,
-a {
+a,
+[type=submit] {
   font-family: 'McLaren', cursive;
   text-transform: uppercase;
   -webkit-text-decoration-style: none;
@@ -290,6 +295,7 @@ header .headerText {
       flex-shrink: 1;
 }
 
+[type=submit],
 a {
   font-size: clamp(1.5rem, 2vw, 1.8rem);
   width: 200px;
@@ -298,21 +304,38 @@ a {
   color: #fff;
   text-decoration: none;
   text-align: center;
-  border: 3px solid transparent;
   -webkit-box-shadow: 5px 5px #f4e6b7;
           box-shadow: 5px 5px #f4e6b7;
 }
 
-a:hover, a:focus {
-  border: 3px solid #eb6f5d;
+label:hover,
+[type=submit]
+a:hover {
   cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'  width='40' height='48' viewport='0 0 100 100' style='fill:black;font-size:24px;'><text y='50%'>🥟</text></svg>") 16 0, auto;
 }
 
+label:hover,
+input:hover,
+[type=submit]:hover,
+a:hover {
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+}
+
+label:focus,
+input:focus,
+[type=submit]:focus,
+a:focus {
+  outline: 3px solid #eb6f5d;
+}
+
+[type=submit],
 section:nth-of-type(odd) {
   background-color: #a48c63;
   color: #fff;
 }
 
+[type=submit] a,
 section:nth-of-type(odd) a {
   font-size: 1.6rem;
   background-color: #fff;

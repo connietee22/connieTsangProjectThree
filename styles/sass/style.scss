@@ -12,6 +12,10 @@ html {
     font-size: 62.5%;
 }
 
+input {
+    border: 0;
+}
+
 .wrapper {
     width: 90%;
     max-width: 1150px;
@@ -20,7 +24,8 @@ html {
 
 h1,
 p,
-a {
+a,
+[type=submit] {
     font-family: 'McLaren', cursive;
     text-transform: uppercase;
     text-decoration-style: none;
@@ -59,6 +64,7 @@ header {
     }
 }
 
+[type=submit],
 a {
     font-size: clamp(1.5rem, 2vw, 1.8rem);
     width: 200px;
@@ -67,16 +73,31 @@ a {
     color: #fff;
     text-decoration: none;
     text-align: center;
-    border: 3px solid transparent;
     box-shadow: 5px 5px $dumplingBeige;
-    &:hover,
-    &:focus {
-        border: 3px solid $dumplingRed;
+}
+
+label,
+[type=submit]
+a {
+    &:hover {
         // from emojicursor.app* - Made by Kyle Kelly
-    cursor:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'  width='40' height='48' viewport='0 0 100 100' style='fill:black;font-size:24px;'><text y='50%'>🥟</text></svg>") 16 0,auto;
+        cursor:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'  width='40' height='48' viewport='0 0 100 100' style='fill:black;font-size:24px;'><text y='50%'>🥟</text></svg>") 16 0,auto;
     }
 }
 
+label,
+input,
+[type=submit],
+a {
+    &:hover {
+        transform: scale(1.2);
+    }
+    &:focus {
+        outline: 3px solid $dumplingRed;
+    }
+}
+
+[type=submit],
 section:nth-of-type(odd) {
     background-color: $dumplingBrown;
     color: #fff;
@@ -107,6 +128,7 @@ form {
         text-align: center;
     }
 }
+
 .radioButtonContainer {
     display: flex;
 }
