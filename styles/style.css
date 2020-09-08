@@ -309,7 +309,7 @@ a {
 }
 
 label:hover,
-[type=submit]
+[type=submit]:hover,
 a:hover {
   cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'  width='40' height='48' viewport='0 0 100 100' style='fill:black;font-size:24px;'><text y='50%'>🥟</text></svg>") 16 0, auto;
 }
@@ -329,15 +329,12 @@ a:focus {
   outline: 3px solid #eb6f5d;
 }
 
-[type=submit],
 section:nth-of-type(odd) {
   background-color: #a48c63;
   color: #fff;
 }
 
-[type=submit] a,
 section:nth-of-type(odd) a {
-  font-size: 1.6rem;
   background-color: #fff;
   color: #a48c63;
 }
@@ -364,17 +361,17 @@ section:nth-of-type(odd) a {
 }
 
 form {
-  font-size: 2.5rem;
+  font-size: clamp(1.9rem, 2vw, 2.5rem);
   text-transform: uppercase;
 }
 
 form p {
-  font-size: 3rem;
+  font-size: clamp(2.2rem, 2.3vw, 3rem);
   font-weight: 300;
   text-align: center;
 }
 
-.radioButtonContainer {
+.checkContainer {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -402,5 +399,17 @@ form p {
     -ms-flex-item-align: center;
         -ms-grid-row-align: center;
         align-self: center;
+  }
+  .checkContainer {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .filter {
+    text-align: center;
   }
 }

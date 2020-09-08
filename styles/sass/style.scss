@@ -77,7 +77,7 @@ a {
 }
 
 label,
-[type=submit]
+[type=submit],
 a {
     &:hover {
         // from emojicursor.app* - Made by Kyle Kelly
@@ -97,12 +97,10 @@ a {
     }
 }
 
-[type=submit],
 section:nth-of-type(odd) {
     background-color: $dumplingBrown;
     color: #fff;
     a {
-        font-size: 1.6rem;
         background-color: #fff;
         color: $dumplingBrown;
     }
@@ -120,16 +118,16 @@ section:nth-of-type(odd) {
 }
 
 form {
-    font-size: 2.5rem;
+    font-size: clamp(1.9rem, 2vw, 2.5rem);
     text-transform: uppercase;
     p {
-        font-size: 3rem;
+        font-size: clamp(2.2rem, 2.3vw, 3rem);
         font-weight: 300;
         text-align: center;
     }
 }
 
-.radioButtonContainer {
+.checkContainer {
     display: flex;
 }
 
@@ -149,5 +147,15 @@ form {
             align-self: center;
         }
     }
+
+    .checkContainer {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .filter {
+        text-align: center;
+    }
+
 }
 

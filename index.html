@@ -21,31 +21,33 @@
             <p></p>
         </header>
         
-        <form id="startJourney" >
-            <section class="filter">
-                <p>How do you like your dumplings?</p>
-                <div class="radioButtonContainer">
-                    <div>
-                        <input type="radio" id="boiled" aria-hidden="true" name="dumplingKind" value="boiled">
-                        <label for="boiled" aria-label="click to select boiled dumpling">Boiled + steamy</label>
+        <form id="startJourney">
+            <section>
+                <div class="wrapper filter"> 
+                    <p>How do you like your dumplings?</p>
+                    <div class="checkContainer">
+                        <div>
+                            <input type="radio" id="boiled" aria-hidden="true" name="dumplingKind" value="boiled">
+                            <label for="boiled" aria-label="click to select boiled dumpling">Boiled + steamy</label>
+                        </div>
+                        <div>
+                            <input type="radio" id="fried" name="dumplingKind" aria-hidden="true" value="fried">
+                            <label for="fried" aria-label="click to select fried dumpling">Fried + crispy</label> 
+                        </div>
                     </div>
-                    <div>
-                        <input type="radio" id="fried" name="dumplingKind" aria-hidden="true" value="fried">
-                        <label for="fried" aria-label="click to select fried dumpling">Fried + crispy</label> 
-                    </div>
+                    <a href="#fillings">Next</a>
                 </div>
-                <a href="#fillings">Next</a>
             </section>
 
             <section class="filter" id="fillings">
                 <p>What's your filling?</p>
-                <div class="radioButtonContainer">
+                <div class="checkContainer">
                     <div>
-                        <input type="radio" id="meat" name="filling" aria-hidden="true" value="meat">
+                        <input type="checkbox" id="meat" name="filling" aria-hidden="true" value="meat">
                         <label for="meat" aria-label="click to select meat filling">Meat</label>
                     </div>
                     <div>
-                        <input type="radio" id="veg" aria-hidden="true" name="filling" value="veg">
+                        <input type="checkbox" id="veg" aria-hidden="true" name="filling" value="veg">
                         <label for="veg" aria-label="click to select vegetarian filling">Veggies</label>
                     </div>
                     <!-- <div>
