@@ -413,14 +413,19 @@ section:nth-of-type(odd) a {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  padding: 20px;
 }
 
 .countries .countryName {
   width: 200px;
-  padding: 20px 20px;
   margin: 10px 15px;
   background-color: #f4e6b7;
   color: #a48c63;
+  text-align: center;
+}
+
+.countries .countryName input {
+  padding: 50px 40px;
 }
 
 @media (max-width: 768px) {
