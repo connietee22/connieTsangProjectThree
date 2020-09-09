@@ -77,10 +77,44 @@ const dumplings = {
   ]
 }
 
+const dumplingApp = {};
 
+
+// dumplingApp.init = function() {
+//   dumplingApp.errorHandling();
+// };
 
 $(document).ready(function(){
+ 
+  // how to validate form
+  function errorHandling() {
+    $('.dumplingSelection').on('submit', function (e) {
+    e.preventDefault();
+      const selectedFilling = $('input[name="filling"]:checked').val();
+      if (!selectedFilling) {
+        $('.errorMessage').html(`<p>Don't forget the filling!</p>`);
+        // $('.fillings').addClass('errorMessage');
+      }
+    })
+  };
   
+  // check if at least one box has been checked in each section before proceeding
+  errorHandling();
+
+
+});
+
+
+// get the value of selected checkboxes in each section (boiled || fried or boiled && fried --> meat || veggie)
+// save values into variables
+// cycle through dumplings arrays to compare user’s selections in variables to fried and/or boiled filling values in dumpling objects.
+// push results into array
+// display the country of origin from these results as radio buttons 
+// event listener on new form 
+// when button is clicked, the corresponding dumpling + recipe link will appear
+
+
+
   // function findValue(array) {
   //   for (let i = 0; i < array.length; i++) {
   //     if (array[i].filling === "veg"){
@@ -90,14 +124,13 @@ $(document).ready(function(){
   // }
 
 
-  const finalDumplings = [];
-  const valueFromQuiz = "boiled";
-  const typesOfDumplings = dumplings[valueFromQuiz];
-  console.log(dumplings.boiled);
-  for (let i = 0; i < typesOfDumplings.length; i++) {
-    if (typesOfDumplings[i].filling === "veg") {
-      finalDumplings.push();
-    }
-  }
+  // const finalDumplings = [];
+  // const valueFromQuiz = "boiled";
+  // const typesOfDumplings = dumplings[valueFromQuiz];
+  // console.log(dumplings.boiled);
+  // for (let i = 0; i < typesOfDumplings.length; i++) {
+  //   if (typesOfDumplings[i].filling === "veg") {
+  //     finalDumplings.push();
+  //   }
+  // }
 
-});

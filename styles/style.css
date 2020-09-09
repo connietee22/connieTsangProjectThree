@@ -222,6 +222,43 @@ textarea {
   overflow: hidden;
 }
 
+@media (max-width: 768px) {
+  header {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    margin-left: 0;
+  }
+  header img {
+    margin-bottom: 30px;
+  }
+  header .headerText {
+    text-align: center;
+    margin-left: 0px;
+  }
+  header a {
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
+  }
+  .checkContainer {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .filter {
+    text-align: center;
+  }
+}
+
 html {
   padding: 0;
   margin: 0;
@@ -249,7 +286,7 @@ a,
 }
 
 h1 {
-  font-size: clamp(2.75rem, 3vw, 7rem);
+  font-size: clamp(2.75rem, 3.5vw, 7rem);
   padding-bottom: 15px;
 }
 
@@ -377,39 +414,7 @@ form p {
   display: flex;
 }
 
-@media (max-width: 768px) {
-  header {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    margin-left: 0;
-  }
-  header img {
-    margin-bottom: 30px;
-  }
-  header .headerText {
-    text-align: center;
-    margin-left: 0px;
-  }
-  header a {
-    -ms-flex-item-align: center;
-        -ms-grid-row-align: center;
-        align-self: center;
-  }
-  .checkContainer {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-  }
-  .filter {
-    text-align: center;
-  }
+.errorMessage {
+  height: 100px;
+  color: #eb6f5d;
 }
