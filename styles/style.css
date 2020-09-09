@@ -415,6 +415,6 @@ form p {
 }
 
 .errorMessage {
-  height: 100px;
+  display: none;
   color: #eb6f5d;
 }

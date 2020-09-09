@@ -78,34 +78,57 @@ const dumplings = {
 }
 
 const dumplingApp = {};
+// check if at least one box has been checked in each section before proceedi
+dumplingApp.validateForm = function () {
+  $('.dumplingSelection').on('submit', function (e) {
+    e.preventDefault();
+    const selectedFilling = $('input[name="filling"]:checked').val();
+    if (!selectedFilling) {
+      $('.errorMessage').toggle();
+    } else {
+      return;
+    }   
+  })
+}
+
+dumplingApp.submitChoices = function() {
+  $('.dumplingSelection').on('submit', function(e) {
+    e.preventDefault();
+    // get the value of selected checkboxes in boiled || fried
+    dumplingApp.dumplingType = $('input[type=radio]:checked').val();
+    // get value of meat || veggie or meat && veggie -- put values in array
+    dumplingApp.fillingType = [];
+    
+    if ($('input[value=veg]:checked').val() && $('input[value=meat]:checked').val()) {
+      dumplingApp.fillingType = "both";
+    } else if ($('input[value=meat]:checked').val()) {
+      dumplingApp.fillingType = "meat";
+    } else {
+      dumplingApp.fillingType = "veg";
+    }
+    
+  })
+}
 
 
-// dumplingApp.init = function() {
-//   dumplingApp.errorHandling();
-// };
+
+
+
+
+
+dumplingApp.init = function() {
+  dumplingApp.validateForm();
+  dumplingApp.submitChoices();
+  
+};
 
 $(document).ready(function(){
+  dumplingApp.init();
  
-  // how to validate form
-  function errorHandling() {
-    $('.dumplingSelection').on('submit', function (e) {
-    e.preventDefault();
-      const selectedFilling = $('input[name="filling"]:checked').val();
-      if (!selectedFilling) {
-        $('.errorMessage').html(`<p>Don't forget the filling!</p>`);
-        // $('.fillings').addClass('errorMessage');
-      }
-    })
-  };
-  
-  // check if at least one box has been checked in each section before proceeding
-  errorHandling();
-
-
 });
 
 
-// get the value of selected checkboxes in each section (boiled || fried or boiled && fried --> meat || veggie)
+
 // save values into variables
 // cycle through dumplings arrays to compare user’s selections in variables to fried and/or boiled filling values in dumpling objects.
 // push results into array
