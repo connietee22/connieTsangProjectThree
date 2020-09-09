@@ -116,8 +116,14 @@ dumplingApp.submitChoices = function() {
     // need to find a way to get both in the mix
 
     // display the country of origin from these results as radio buttons 
-    $('.results')
-
+    $('.countries').append(`<p>Where was your dumpling born?</p>`);
+    for (let i = 0; i < results.length; i++) {
+      $('.countries').append(`
+        <div>
+          <label for="${results[i].origin}" aria-label="click to display dumpling with origin of ${results[i].origin}">${results[i].origin}</label>
+          <input type="checkbox" value="${results[i].origin}" name="countries">
+        </div>`)
+    }
   })
 }
 

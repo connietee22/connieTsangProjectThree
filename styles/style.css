@@ -291,7 +291,7 @@ h1 {
 }
 
 h2,
-form {
+label {
   font-family: 'Roboto', sans-serif;
 }
 
@@ -300,6 +300,17 @@ h2 {
   text-transform: lowercase;
   font-weight: 300;
   padding-bottom: 20px;
+}
+
+label {
+  font-size: clamp(1.9rem, 2vw, 2.5rem);
+  text-transform: uppercase;
+}
+
+p {
+  font-size: clamp(2.2rem, 2.3vw, 3rem);
+  font-weight: 300;
+  text-align: center;
 }
 
 header {
@@ -397,17 +408,6 @@ section:nth-of-type(odd) a {
   padding: 20px;
 }
 
-form {
-  font-size: clamp(1.9rem, 2vw, 2.5rem);
-  text-transform: uppercase;
-}
-
-form p {
-  font-size: clamp(2.2rem, 2.3vw, 3rem);
-  font-weight: 300;
-  text-align: center;
-}
-
 .checkContainer {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -417,4 +417,23 @@ form p {
 .errorMessage {
   display: none;
   color: #eb6f5d;
+}
+
+.results {
+  padding: 100px;
+}
+
+.countries {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.countries div {
+  padding: 15px 20px;
 }
