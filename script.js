@@ -96,9 +96,7 @@ dumplingApp.submitChoices = function() {
     e.preventDefault();
     // get the value of selected checkboxes in boiled || fried
     dumplingApp.dumplingType = $('input[type=radio]:checked').val();
-    // get value of meat || veggie or meat && veggie -- put values in array
-    dumplingApp.fillingType = [];
-    
+    // get value of meat || veggie or both and put in variable 
     if ($('input[value=veg]:checked').val() && $('input[value=meat]:checked').val()) {
       dumplingApp.fillingType = "both";
     } else if ($('input[value=meat]:checked').val()) {
@@ -106,7 +104,20 @@ dumplingApp.submitChoices = function() {
     } else {
       dumplingApp.fillingType = "veg";
     }
-    
+  // cycle through dumplings arrays to compare user’s selections in variables to fried and/or boiled filling values in dumpling objects.
+    const results = [];
+
+    // push results into array
+    for (let i = 0; i < dumplings[dumplingApp.dumplingType].length; i++) {
+      if (dumplings[dumplingApp.dumplingType][i].filling === dumplingApp.fillingType) {
+        results.push(dumplings[dumplingApp.dumplingType][i]);
+      }
+    }
+    // need to find a way to get both in the mix
+
+    // display the country of origin from these results as radio buttons 
+    $('.results')
+
   })
 }
 
@@ -129,10 +140,10 @@ $(document).ready(function(){
 
 
 
-// save values into variables
-// cycle through dumplings arrays to compare user’s selections in variables to fried and/or boiled filling values in dumpling objects.
-// push results into array
-// display the country of origin from these results as radio buttons 
+
+
+
+
 // event listener on new form 
 // when button is clicked, the corresponding dumpling + recipe link will appear
 
