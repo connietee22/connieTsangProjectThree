@@ -417,15 +417,7 @@ section:nth-of-type(odd) a {
   max-width: 600px;
 }
 
-.countries .countriesFlex input {
-  visibility: hidden;
-}
-
-.countries .countriesFlex input:checked + label {
-  background: #000;
-}
-
-li label {
+.countries label {
   padding: 15px 30px;
   margin: 10px;
   background-color: #f4e6b7;
@@ -433,12 +425,33 @@ li label {
   text-align: center;
 }
 
+.countries input {
+  visibility: hidden;
+}
+
+.countries input:checked + label {
+  background-color: red;
+}
+
 .finalDumpling {
-  height: 300px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding-bottom: 100px;
 }
 
 .finalDumpling a {
   font-size: clamp(2.5rem, 3.5vw, 5rem);
+  padding: 15px 40px;
+  width: auto;
+  display: block;
 }
 
 @media (max-width: 768px) {

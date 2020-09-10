@@ -142,31 +142,14 @@ section:nth-of-type(odd) {
     justify-content: center;
     align-items: center;
     .countriesFlex {
+        
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
         justify-content: center;
         padding-top: 30px;
         max-width: 600px;
-        input {
-            visibility: hidden;
-        }
-        input:checked + label {
-                background: #000;
-        }
-        // label {
-        //     padding: 10px 30px;
-        //     margin: 10px;
-        //     background-color: $secondary;
-        // color: $primary;
-        // text-align: center;
-        // }
     }
-}
-
-
-
-li {
     label {
         padding: 15px 30px;
         margin: 10px;
@@ -174,11 +157,23 @@ li {
         color: $primary;
         text-align: center;
     }
+    input {
+        visibility: hidden;
+        &:checked + label {
+            background-color: red;
+        }
+    }
 }
 
 .finalDumpling {
-    height: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     a {
         font-size: clamp(2.5rem, 3.5vw, 5rem);
+        padding: 15px 40px;
+        width: auto;
+        display: block;
     }
+    padding-bottom: 100px;
 }
