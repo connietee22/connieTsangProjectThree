@@ -384,7 +384,7 @@ section:nth-of-type(odd) a {
 }
 
 .countries {
-  padding: 100px;
+  padding: 100px 0px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -413,18 +413,20 @@ section:nth-of-type(odd) a {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  padding-top: 20px;
+  padding-top: 30px;
   max-width: 600px;
-  height: 75px;
 }
 
 .countries .countriesFlex input {
   visibility: hidden;
 }
 
-.countries .countriesFlex label {
-  width: 200px;
-  height: 100%;
+.countries .countriesFlex input:checked + label {
+  background: #000;
+}
+
+li label {
+  padding: 15px 30px;
   margin: 10px;
   background-color: #f4e6b7;
   color: #a48c63;
