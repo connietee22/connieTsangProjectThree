@@ -150,7 +150,7 @@ dumplingApp.submitChoices = function() {
       results.forEach(result => {
         if (result.origin === countrySelected) {
           $finalDumpling.empty();
-          $finalDumpling.append(`<p>You should try <a href="${result.recipe}">${result.name}</a></p>`);
+          $finalDumpling.append(`<p><span class="finalIntro">You should try</span> <a href="${result.recipe}">${result.name}</a></p>`).addClass('addBg');
         }
       })
       const finalDumpling = results[countrySelected];

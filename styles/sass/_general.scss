@@ -47,7 +47,7 @@ label {
 }
 
 p {
-    font-size: clamp(2.3rem, 2.3vw, 3rem);
+    font-size: clamp(2.5rem, 2.3vw, 4rem);
     font-weight: 300;
     line-height: 1.6;
     text-align: center;
@@ -96,7 +96,7 @@ input,
 [type=submit],
 a {
     &:hover {
-        transform: scale(1.2);
+        transform: scale(1.1);
     }
     &:focus {
         outline: 3px solid $accent;
@@ -133,7 +133,7 @@ section:nth-of-type(odd) {
 }
 
 .results {
-    // padding: 100px;
+    padding: 100px;
 }
 
 .countries {
@@ -159,10 +159,10 @@ section:nth-of-type(odd) {
         text-align: center;
     }
     input {
-        visibility: hidden;
         &:checked + label {
             background-color: red;
         }
+        visibility: hidden;
     }
 }
 
@@ -170,11 +170,25 @@ section:nth-of-type(odd) {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+    max-width: 600px;
+    margin: 0 auto;
     a {
-        font-size: clamp(2.5rem, 3.5vw, 5rem);
-        padding: 15px 40px;
+        font-size: clamp(3rem, 5vw, 5rem);
+        padding: 10px 0px;
         width: auto;
         display: block;
     }
-    padding-bottom: 100px;
+    .finalIntro {
+    font-size: clamp(1.6rem, 2vw, 2.5rem);
+}
+}
+
+
+
+.addBg {
+    border: 3px solid $secondary;
+    background-color: $secondary;
+    border-radius: 15px;
+    color: $primary;
 }
