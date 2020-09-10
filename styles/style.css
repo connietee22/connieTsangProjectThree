@@ -383,11 +383,8 @@ section:nth-of-type(odd) a {
   color: #eb6f5d;
 }
 
-.results {
-  padding: 100px;
-}
-
 .countries {
+  padding: 100px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -398,6 +395,9 @@ section:nth-of-type(odd) a {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .countries .countriesFlex {
@@ -413,19 +413,30 @@ section:nth-of-type(odd) a {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  padding: 20px;
+  padding-top: 20px;
+  max-width: 600px;
+  height: 75px;
 }
 
-.countries .countryName {
+.countries .countriesFlex input {
+  visibility: hidden;
+}
+
+.countries .countriesFlex label {
   width: 200px;
-  margin: 10px 15px;
+  height: 100%;
+  margin: 10px;
   background-color: #f4e6b7;
   color: #a48c63;
   text-align: center;
 }
 
-.countries .countryName input {
-  padding: 50px 40px;
+.finalDumpling {
+  height: 300px;
+}
+
+.finalDumpling a {
+  font-size: clamp(2.5rem, 3.5vw, 5rem);
 }
 
 @media (max-width: 768px) {

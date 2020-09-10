@@ -78,7 +78,16 @@ const dumplings = {
 }
 
 const dumplingApp = {};
-// check if at least one box has been checked in each section before proceedi
+
+dumplingApp.scrollEvents = function() {
+  $('a').on('click', function() {
+  $('html, body').animate({
+    scrollTop: $('#results').offset().top
+  }, 1000);
+});
+}
+
+// check if at least one box has been checked in each section before proceeding
 dumplingApp.validateForm = function () {
   $('.dumplingSelection').on('submit', function (e) {
     e.preventDefault();
@@ -86,6 +95,10 @@ dumplingApp.validateForm = function () {
     if (!selectedFilling) {
       $('.errorMessage').toggle();
     } else {
+      // this animate scroll copied from various sources on StackOverflow
+      $('html, body').animate({
+        scrollTop: $('#results').offset().top
+      }, 1000);
       return;
     }   
   })
@@ -117,24 +130,41 @@ dumplingApp.submitChoices = function() {
     // need to find a way to get both in the mix
 
     // display the country of origin from these results as radio buttons 
-
     const displayCountries = function(filteredResults) {
+
       $countries.empty();
-      $countries.append(`<p>Where was your dumpling born?</p>
+      $countries.append(`<p>Choose your dumpling's origin</p>
         <div class="countriesFlex"></div>`);
       filteredResults.forEach((result) => {
-        $('.countriesFlex').append(`<div class="countryName"><label for="${result.origin}" aria-label="click to display dumpling with origin of ${result.origin}">${result.origin}</label> </div>`);
+          $('.countriesFlex').append(`
+            <li>
+              <input type="radio" id="${result.origin}" name="country" value="${result.origin}" aria-hidden="true">
+              <label for="${result.origin}" aria-label="click to display dumpling with origin of ${result.origin}">${result.origin}</label>
+            </li>`);
       })
     }
-    // for (let i = 0; i < results.length; i++) {
-    //   $('.countries').append(`
-    //     <div>
-    //       <label for="${results[i].origin}" aria-label="click to display dumpling with origin of ${results[i].origin}">${results[i].origin}</label>
-    //       <input type="checkbox" value="${results[i].origin}" name="countries">
-    //     </div>`)
-    //   }
-    displayCountries(results)
+    
+    displayCountries(results);
+    // event listener on new form 
+    // when button is clicked, the corresponding dumpling + recipe link will appear
+    $('[name=country]').on('click', function (e) {
+      e.preventDefault();
+      const countrySelected = $(this).val();
+      console.log(countrySelected);
+      console.log(results);
+      results.forEach(result => {
+        if (result.origin === countrySelected) {
+          $('.finalDumpling').empty();
+          $('.finalDumpling').append(`<p><a href="${result.recipe}">${result.name}</a></p>`);
+        }
+      })
+      const finalDumpling = results[countrySelected];
+      console.log(finalDumpling);
+    });
+
   })
+
+
 
 }
 
@@ -161,8 +191,7 @@ $(document).ready(function(){
 
 
 
-// event listener on new form 
-// when button is clicked, the corresponding dumpling + recipe link will appear
+
 
 
 

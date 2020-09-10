@@ -132,28 +132,40 @@ section:nth-of-type(odd) {
 }
 
 .results {
-    padding: 100px;
+    // padding: 100px;
 }
 
 .countries {
+    padding: 100px;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
     .countriesFlex {
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
         justify-content: center;
-        padding: 20px;
-    }
-    .countryName {
-        width: 200px;
+        padding-top: 20px;
+        max-width: 600px;
+        height: 75px;
         input {
-            padding: 50px 40px;
+            visibility: hidden;
         }
-        margin: 10px 15px;
-        background-color: $secondary;
+        label {
+            width: 200px;
+            height: 100%;
+            margin: 10px;
+            background-color: $secondary;
         color: $primary;
         text-align: center;
+        }
+    }
+}
+
+.finalDumpling {
+    height: 300px;
+    a {
+        font-size: clamp(2.5rem, 3.5vw, 5rem);
     }
 }
