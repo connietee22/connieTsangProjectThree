@@ -73,6 +73,7 @@ header {
 a {
     font-size: clamp(1.5rem, 2vw, 1.8rem);
     width: 200px;
+    border-radius: 5px;
     padding: 15px;
     background-color: $primary;
     color: #fff;
@@ -142,7 +143,6 @@ section:nth-of-type(odd) {
     justify-content: center;
     align-items: center;
     .countriesFlex {
-        
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
@@ -153,6 +153,7 @@ section:nth-of-type(odd) {
     label {
         padding: 15px 30px;
         margin: 10px;
+        border-radius: 5px;
         background-color: $secondary;
         color: $primary;
         text-align: center;
