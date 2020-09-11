@@ -70,7 +70,7 @@ header {
 }
 
 [type=submit],
-a {
+.nextButtons {
     font-size: clamp(1.5rem, 2vw, 1.8rem);
     width: 200px;
     border-radius: 5px;
@@ -99,7 +99,8 @@ a {
         transform: scale(1.1);
     }
     &:focus {
-        outline: 3px solid $accent;
+        border: 3px solid $accent;
+        outline: none;
     }
 }
 
@@ -149,6 +150,7 @@ section:nth-of-type(odd) {
         justify-content: center;
         padding-top: 30px;
         max-width: 600px;
+        margin: 0 auto;
     }
     label {
         padding: 15px 30px;
@@ -159,10 +161,8 @@ section:nth-of-type(odd) {
         text-align: center;
     }
     input {
-        &:checked + label {
-            background-color: red;
-        }
         visibility: hidden;
+        width: 0px;
     }
 }
 
@@ -180,15 +180,14 @@ section:nth-of-type(odd) {
         display: block;
     }
     .finalIntro {
-    font-size: clamp(1.6rem, 2vw, 2.5rem);
+        font-size: clamp(1.6rem, 2vw, 2.5rem);
+    }
 }
-}
-
-
 
 .addBg {
     border: 3px solid $secondary;
-    background-color: $secondary;
+    background-color: $light;
     border-radius: 15px;
+    padding: 15px 25px;
     color: $primary;
 }

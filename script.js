@@ -126,7 +126,6 @@ dumplingApp.submitChoices = function() {
 
     // display the country of origin from these results as radio buttons 
     const displayCountries = function(filteredResults) {
-
       $countries.empty();
       $finalDumpling.empty();
       $countries.append(`<p>Choose your dumpling's origin</p>
@@ -134,7 +133,7 @@ dumplingApp.submitChoices = function() {
       filteredResults.forEach((result) => {
         $('.countriesFlex').append(`
           <input type="radio" id="${result.origin}" name="country" value="${result.origin}" aria-hidden="true">
-          <label for="${result.origin}" aria-label="click to display dumpling with origin of ${result.origin}">${result.origin}</label>
+          <label for="${result.origin}" aria-label="click to display dumpling with origin of ${result.origin}" tabindex="0">${result.origin}</label>
         `);
       })
     }
@@ -150,7 +149,7 @@ dumplingApp.submitChoices = function() {
       results.forEach(result => {
         if (result.origin === countrySelected) {
           $finalDumpling.empty();
-          $finalDumpling.append(`<p><span class="finalIntro">You should try</span> <a href="${result.recipe}">${result.name}</a></p>`).addClass('addBg');
+          $finalDumpling.append(`<p><span class="finalIntro">Get your dumpling recipe:</span> <a href="${result.recipe}">${result.name}</a></p>`).addClass('addBg');
         }
       })
       const finalDumpling = results[countrySelected];
