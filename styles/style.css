@@ -402,7 +402,7 @@ section:nth-of-type(odd) a {
 }
 
 .countries {
-  padding: 100px 0px;
+  padding: 0px 0px 75px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

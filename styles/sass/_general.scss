@@ -3,6 +3,7 @@ html {
     padding: 0;
     margin: 0;
     font-size: 62.5%;
+    // scroll-behavior: smooth;
 }
 
 input {
@@ -143,7 +144,7 @@ section:nth-of-type(odd) {
 }
 
 .countries {
-    padding: 100px 0px;
+    padding: 0px 0px 75px;
     display: flex;
     flex-direction: column;
     justify-content: center;
