@@ -89,24 +89,14 @@ dumplingApp.validateForm = function () {
       // to reset the hide if the error is corrected
       $('.errorMessage').hide();
       // to advance to the countries/results section
-      $('html, body').animate({
-        scrollTop: $('#results').offset().top
-      }, 1000); // this animate scroll technique copied from various sources on StackOverflow and w3schools
+      // $('html, body').animate({
+      //   scrollTop: $('#results').offset().top
+      // }, 1000); // this animate scroll technique copied from various sources on StackOverflow and w3schools
       return;
     } else {
       $('.errorMessage').show();
     }
 
-    // const selectedFilling = $('input[name="filling"]:checked').val();
-    // if (!selectedFilling) {
-    //   $('.errorMessage').toggle();
-    // } else {
-    //   // this animate scroll copied from various sources on StackOverflow
-    //   $('html, body').animate({
-    //     scrollTop: $('#results').offset().top
-    //   }, 1000);
-    //   return;
-    // }   
   })
 }
 
@@ -146,8 +136,12 @@ dumplingApp.submitChoices = function() {
 
   //DISPLAYING THE FINAL DUMPLING AS A CHOICE FROM THE COUNTRY BUTTONS
   dumplingApp.displayCountries = function(filteredResults) {
+    $('.results').show();
+    
+    dumplingApp.scrollBottom();
     $countries.empty();
     $finalDumpling.empty();
+    
     $countries.append(`<p>Choose your dumpling's origin</p>
       <form class="countriesFlex"></form>`);
     filteredResults.forEach((result) => {
@@ -171,18 +165,22 @@ dumplingApp.submitChoices = function() {
       countryResults.forEach(result => {
         if (result.origin === countrySelected) {
           $finalDumpling.empty();
-          $finalDumpling.append(`<p><span class="finalIntro">Get your dumpling recipe:</span> <span class="highlight"><a href="${result.recipe}">${result.name}</a></span></p>`).addClass('addBg');
+          $finalDumpling.append(`<p><span class="finalIntro">Get your dumpling recipe:</span> <a href="${result.recipe}">${result.name}</a></p>`).addClass('addBg');
         }
       })
-        // scrolling to bottom of page on click
-      const bottom = $(document).height() - $(window).height();
-      console.log($(document).height());
-      $('html, body').animate({
-        scrollTop: bottom
-      }, 1000);
+      dumplingApp.scrollBottom();
     });
   };
-
+  
+  
+  // scrolling to bottom of page on click
+  dumplingApp.scrollBottom = function() {
+    const bottom = $(document).height() - $(window).height();
+    console.log($(document).height());
+    $('html, body').animate({
+      scrollTop: bottom
+    }, 1000);
+  }
 
 dumplingApp.init = function() {
 
@@ -194,7 +192,6 @@ dumplingApp.init = function() {
   // })
   dumplingApp.validateForm();
   dumplingApp.submitChoices();
-  // dumplingApp.displayCountries(dumplingApp.countryResults)
 
 };
 

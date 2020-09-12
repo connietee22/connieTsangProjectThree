@@ -393,6 +393,7 @@ section:nth-of-type(odd) a {
 }
 
 .results {
+  display: none;
   padding: 100px;
 }
 
@@ -487,10 +488,6 @@ section:nth-of-type(odd) a {
   border-radius: 15px;
   padding: 15px 25px;
   color: #a48c63;
-}
-
-.highlight {
-  background-color: #f4e6b7;
 }
 
 @media (max-width: 768px) {
