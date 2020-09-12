@@ -88,15 +88,11 @@ dumplingApp.validateForm = function () {
     if ($('#fillings input').is(':checked')) {
       // to reset the hide if the error is corrected
       $('.errorMessage').hide();
-      // to advance to the countries/results section
-      // $('html, body').animate({
-      //   scrollTop: $('#results').offset().top
-      // }, 1000); // this animate scroll technique copied from various sources on StackOverflow and w3schools
       return;
     } else {
+      // shows error message
       $('.errorMessage').show();
     }
-
   })
 }
 
@@ -165,7 +161,7 @@ dumplingApp.submitChoices = function() {
       countryResults.forEach(result => {
         if (result.origin === countrySelected) {
           $finalDumpling.empty();
-          $finalDumpling.append(`<p><span class="finalIntro">Get your dumpling recipe:</span> <a href="${result.recipe}">${result.name}</a></p>`).addClass('addBg');
+          $finalDumpling.append(`<p><span class="finalIntro">Get your dumpling recipe:</span> <a href="${result.recipe}" target="_blank">${result.name}</a></p>`).addClass('addBg');
         }
       })
       dumplingApp.scrollBottom();
@@ -179,77 +175,46 @@ dumplingApp.submitChoices = function() {
     console.log($(document).height());
     $('html, body').animate({
       scrollTop: bottom
-    }, 1000);
-  }
+    }, 900);
+  };
+
+
+  // function to scroll to top of sections
+
 
 dumplingApp.init = function() {
 
-  // $('a').on('click', function() {
-  //   $('html, body').animate({
-  //       scrollTop: $('#results').offset().top
-  //     }, 1000);
-  //     return;
-  // })
-// TO ANIMATE ON SCROLL
+  // smooth scrolling - from W3 Schools 
+  $('a').on('click', function (event) {
 
-
-  $("a").on('click', function (event) {
+    // page will refresh without the previous search elements -- without this, there were numerous bugs on page reload -- stackoverflow provided info on trigger function - would love more info on this if you have it!
+    // if (id === "try") {
+    //   $('form#startJourney').trigger("reset");
+    // }
 
     // Make sure this.hash has a value before overriding default behavior
     if (this.hash !== "") {
-      
-
       // Store hash
       const hash = this.hash;
       event.preventDefault();
-      // Using jQuery's animate() method to add smooth page scroll
-      // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+      // animate() method to add smooth scroll
+      // 900 milliseconds to scroll to area
       $('html, body').animate({
         scrollTop: $(hash).offset().top
-      }, 800, function () {
-
-        // Add hash (#) to URL when done scrolling (default click behavior)
-        window.location.hash = hash;
+      }, 900, function () {
+      // Add hash (#) to URL when done scrolling (default click behavior)
+      window.location.hash = hash;
       });
-    } // End if
+    }
+  });
 
-  dumplingApp.validateForm();
-  dumplingApp.submitChoices();
-
-})
+    
+    dumplingApp.validateForm();
+    dumplingApp.submitChoices();
+    
 };
 
 $(document).ready(function(){
   dumplingApp.init();
- 
+
 });
-
-
-
-
-
-
-
-
-
-
-
-  // function findValue(array) {
-  //   for (let i = 0; i < array.length; i++) {
-  //     if (array[i].filling === "veg"){
-  //       return array[i];
-  //     }
-  //   }
-  // }
-
-
-  // const finalDumplings = [];
-  // const valueFromQuiz = "boiled";
-  // const typesOfDumplings = dumplings[valueFromQuiz];
-  // console.log(dumplings.boiled);
-  // for (let i = 0; i < typesOfDumplings.length; i++) {
-  //   if (typesOfDumplings[i].filling === "veg") {
-  //     finalDumplings.push();
-  //   }
-  // }
-
