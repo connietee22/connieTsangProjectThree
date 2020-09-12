@@ -82,18 +82,31 @@ dumplingApp.countryResults = []; // *** HELPCUE - RESULTS WOULD NOT POST UNLESS 
 
 // check if at least one box has been checked in each section before proceeding
 dumplingApp.validateForm = function () {
+
   $('.dumplingSelection').on('submit', function (e) {
     e.preventDefault();
-    const selectedFilling = $('input[name="filling"]:checked').val();
-    if (!selectedFilling) {
-      $('.errorMessage').toggle();
-    } else {
-      // this animate scroll copied from various sources on StackOverflow
+    if ($('#fillings input').is(':checked')) {
+      // to reset the hide if the error is corrected
+      $('.errorMessage').hide();
+      // to advance to the countries/results section
       $('html, body').animate({
         scrollTop: $('#results').offset().top
-      }, 1000);
+      }, 1000); // this animate scroll technique copied from various sources on StackOverflow and w3schools
       return;
-    }   
+    } else {
+      $('.errorMessage').show();
+    }
+
+    // const selectedFilling = $('input[name="filling"]:checked').val();
+    // if (!selectedFilling) {
+    //   $('.errorMessage').toggle();
+    // } else {
+    //   // this animate scroll copied from various sources on StackOverflow
+    //   $('html, body').animate({
+    //     scrollTop: $('#results').offset().top
+    //   }, 1000);
+    //   return;
+    // }   
   })
 }
 
@@ -151,6 +164,7 @@ dumplingApp.submitChoices = function() {
   dumplingApp.displayFinal = function() {
     $('[name=country]').on('click', function (e) {
       e.preventDefault();
+      // e.stopPropagation();
       const countrySelected = $(this).val();
       console.log(this);
       console.log(countryResults);
