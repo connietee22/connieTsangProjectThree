@@ -136,6 +136,9 @@ section:nth-of-type(odd) {
 
 .results {
     padding: 100px;
+    .tryAgain {
+        text-align: right;
+    }
 }
 
 .countries {
@@ -176,6 +179,7 @@ section:nth-of-type(odd) {
     margin: 0 auto;
     a {
         font-size: clamp(4rem, 5vw, 5rem);
+        color: black;
         text-shadow: 3px 3px $accent;
         text-decoration: none;
         padding: 10px 0px;

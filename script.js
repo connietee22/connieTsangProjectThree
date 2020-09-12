@@ -134,7 +134,7 @@ dumplingApp.submitChoices = function() {
     if (dumplingApp.fillingType === "both") {
       countryResults = chosenDumplingType;
     } else {
-    // otherwise, if user selects meat OR veg choice, cycle through dumpling objects to only include appropriate dumpling in new countryResults array  
+    // otherwise, if user selects meat OR veg choice, cycle through dumpling objects to only include appropriately filled dumplings in new countryResults array  
       countryResults = chosenDumplingType.filter((dumpling) => {
         return dumpling.filling === dumplingApp.fillingType;
       })
@@ -164,9 +164,9 @@ dumplingApp.submitChoices = function() {
   dumplingApp.displayFinal = function() {
     $('[name=country]').on('click', function (e) {
       e.preventDefault();
-      // e.stopPropagation();
+      
+      //get value of country button selected
       const countrySelected = $(this).val();
-      console.log(this);
       console.log(countryResults);
       countryResults.forEach(result => {
         if (result.origin === countrySelected) {
@@ -174,21 +174,28 @@ dumplingApp.submitChoices = function() {
           $finalDumpling.append(`<p><span class="finalIntro">Get your dumpling recipe:</span> <span class="highlight"><a href="${result.recipe}">${result.name}</a></span></p>`).addClass('addBg');
         }
       })
+        // scrolling to bottom of page on click
+      const bottom = $(document).height() - $(window).height();
+      console.log($(document).height());
+      $('html, body').animate({
+        scrollTop: bottom
+      }, 1000);
     });
   };
-// } // BRINGING UP TO CLOSE SUBMIT CHOICES
-
 
 
 dumplingApp.init = function() {
-  // const chosenDumplingType = dumplings[dumplingApp.dumplingType];
+
+  // $('a').on('click', function() {
+  //   $('html, body').animate({
+  //       scrollTop: $('#results').offset().top
+  //     }, 1000);
+  //     return;
+  // })
   dumplingApp.validateForm();
   dumplingApp.submitChoices();
-  dumplingApp.displayCountries(dumplingApp.countryResults)
-  // dumplingApp.displayFinal(); 
-  
-  
-  
+  // dumplingApp.displayCountries(dumplingApp.countryResults)
+
 };
 
 $(document).ready(function(){

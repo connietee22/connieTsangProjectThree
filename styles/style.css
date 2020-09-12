@@ -396,6 +396,10 @@ section:nth-of-type(odd) a {
   padding: 100px;
 }
 
+.results .tryAgain {
+  text-align: right;
+}
+
 .countries {
   padding: 100px 0px;
   display: -webkit-box;
@@ -465,7 +469,9 @@ section:nth-of-type(odd) a {
 
 .finalDumpling a {
   font-size: clamp(4rem, 5vw, 5rem);
-  text-shadow: 3px 3px #f4e6b7;
+  color: black;
+  text-shadow: 3px 3px #eb6f5d;
+  text-decoration: none;
   padding: 10px 0px;
   width: auto;
   display: block;
