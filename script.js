@@ -137,22 +137,33 @@ dumplingApp.submitChoices = function() {
     dumplingApp.scrollBottom();
     $countries.empty();
     $finalDumpling.empty();
+    $finalDumpling.removeClass('addBg')
     
-    $countries.append(`<p>Choose your dumpling's origin</p>
-      <form class="countriesFlex"></form>`);
+    $countries.append(`
+      <p>Choose your dumpling's origin</p>
+      <form class="countriesFlex"></form>
+    `);
+
     filteredResults.forEach((result) => {
       $('.countriesFlex').append(`
-        <input type="radio" id="${result.origin}" name="country" value="${result.origin}" aria-hidden="true">
-        <label for="${result.origin}" aria-label="click to display dumpling with origin of ${result.origin}" tabindex="0">${result.origin}</label>
+          <input type="radio" id="${result.origin}" name="country" value="${result.origin}">
+          <label for="${result.origin}" aria-label="click to display dumpling with origin of ${result.origin}" tabindex = "0"> ${result.origin}</label>
       `);
     });
-    dumplingApp.displayFinal();
+      dumplingApp.displayFinal();
   }
 
     // event listener on new form 
     // when button is clicked, the corresponding dumpling + recipe link will appear
   dumplingApp.displayFinal = function() {
-    $('[name=country]').on('click', function (e) {
+    $('.countriesFlex').on('keydown', function (e) {
+      if (e.key === "Enter") {
+        console.log(this);
+      }
+    })
+
+    // on change of countries radio button, display corresponding dumpling recipe
+    $('[name=country]').on('change', function (e) {
       e.preventDefault();
       
       //get value of country button selected
@@ -168,6 +179,26 @@ dumplingApp.submitChoices = function() {
     });
   };
   
+
+//****ORIGINAL DISPLAY FINAL DUMPLING */
+//  dumplingApp.displayFinal = function() {
+// $('[name=country]').on('change', function (e) {
+//   e.preventDefault();
+
+//   //get value of country button selected
+//   const countrySelected = $(this).val();
+//   console.log(countryResults);
+//   countryResults.forEach(result => {
+//     if (result.origin === countrySelected) {
+//       $finalDumpling.empty();
+//       $finalDumpling.append(`<p><span class="finalIntro">Get your dumpling recipe:</span> <a href="${result.recipe}" target="_blank">${result.name}</a></p>`).addClass('addBg');
+//     }
+//   })
+//   dumplingApp.scrollBottom();
+// });
+//   };
+
+
   
   // scrolling to bottom of page on click
   dumplingApp.scrollBottom = function() {
@@ -179,18 +210,10 @@ dumplingApp.submitChoices = function() {
   };
 
 
-  // function to scroll to top of sections
-
-
 dumplingApp.init = function() {
 
   // smooth scrolling - from W3 Schools 
   $('a').on('click', function (event) {
-
-    // page will refresh without the previous search elements -- without this, there were numerous bugs on page reload -- stackoverflow provided info on trigger function - would love more info on this if you have it!
-    // if (id === "try") {
-    //   $('form#startJourney').trigger("reset");
-    // }
 
     // Make sure this.hash has a value before overriding default behavior
     if (this.hash !== "") {
@@ -207,11 +230,8 @@ dumplingApp.init = function() {
       });
     }
   });
-
-    
     dumplingApp.validateForm();
     dumplingApp.submitChoices();
-    
 };
 
 $(document).ready(function(){

@@ -167,8 +167,7 @@ section:nth-of-type(odd) {
         text-align: center;
     }
     input {
-        visibility: hidden;
-        width: 0px;
+        opacity: 0;
     }
 }
 
@@ -181,7 +180,6 @@ section:nth-of-type(odd) {
     margin: 0 auto;
     a {
         font-size: clamp(4rem, 5vw, 5rem);
-        color: black;
         text-shadow: 3px 3px $accent;
         text-decoration: none;
         padding: 10px 0px;

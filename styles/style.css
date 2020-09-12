@@ -446,8 +446,7 @@ section:nth-of-type(odd) a {
 }
 
 .countries input {
-  visibility: hidden;
-  width: 0px;
+  opacity: 0;
 }
 
 .finalDumpling {
@@ -470,7 +469,6 @@ section:nth-of-type(odd) a {
 
 .finalDumpling a {
   font-size: clamp(4rem, 5vw, 5rem);
-  color: black;
   text-shadow: 3px 3px #eb6f5d;
   text-decoration: none;
   padding: 10px 0px;
