@@ -162,7 +162,7 @@ section:nth-of-type(odd) {
         color: $primary;
         text-align: center;
     }
-    input[type=radio] {
+    input {
         opacity: 0;
         &:focus + label {
             background: $light;

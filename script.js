@@ -146,7 +146,8 @@ dumplingApp.submitChoices = function() {
 
     filteredResults.forEach((result) => {
       $('.countriesFlex').append(`
-          <input type="radio" id="${result.origin}" name="country" placeholder="${result.origin}" value="${result.origin}">
+          
+          <input type="radio" id="${result.origin}" name="country" value="${result.origin}">
           <label for="${result.origin}" aria-label="click to display dumpling with origin of ${result.origin}" tabindex = "0" visibility="hidden"> ${result.origin}</label>
       `);
     });

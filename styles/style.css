@@ -439,15 +439,15 @@ section:nth-of-type(odd) a {
   text-align: center;
 }
 
-.countries input[type=radio] {
+.countries input {
   opacity: 0;
 }
 
-.countries input[type=radio]:focus + label {
+.countries input:focus + label {
   background: #fff;
 }
 
-.countries input[type=radio]:active + label {
+.countries input:active + label {
   background: #333;
 }
 
