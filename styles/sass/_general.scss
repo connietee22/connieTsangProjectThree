@@ -6,10 +6,6 @@ html {
     // scroll-behavior: smooth;
 }
 
-input {
-    border: 0;
-}
-
 .wrapper {
     width: 90%;
     max-width: 1150px;
@@ -92,7 +88,6 @@ a {
     }
 }
 
-label,
 input,
 [type=submit],
 a {
@@ -162,13 +157,20 @@ section:nth-of-type(odd) {
         padding: 15px 30px;
         margin: 10px;
         border-radius: 5px;
+        padding: 15px 30px;
         background-color: $secondary;
         color: $primary;
         text-align: center;
     }
-    input {
+    input[type=radio] {
         opacity: 0;
-    }
+        &:focus + label {
+            background: $light;
+        }
+        &:active + label {
+            background: $dark;
+        }
+    }   
 }
 
 .finalDumpling {

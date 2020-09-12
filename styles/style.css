@@ -228,10 +228,6 @@ html {
   font-size: 62.5%;
 }
 
-input {
-  border: 0;
-}
-
 .wrapper {
   width: 90%;
   max-width: 1150px;
@@ -327,14 +323,12 @@ a:hover {
   cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'  width='40' height='48' viewport='0 0 100 100' style='fill:black;font-size:24px;'><text y='50%'>🥟</text></svg>") 16 0, auto;
 }
 
-label,
 input,
 [type=submit],
 a {
   border: 3px solid transparent;
 }
 
-label:hover,
 input:hover,
 [type=submit]:hover,
 a:hover {
@@ -342,7 +336,6 @@ a:hover {
           transform: scale(1.1);
 }
 
-label:focus,
 input:focus,
 [type=submit]:focus,
 a:focus {
@@ -440,13 +433,22 @@ section:nth-of-type(odd) a {
   padding: 15px 30px;
   margin: 10px;
   border-radius: 5px;
+  padding: 15px 30px;
   background-color: #f4e6b7;
   color: #a48c63;
   text-align: center;
 }
 
-.countries input {
+.countries input[type=radio] {
   opacity: 0;
+}
+
+.countries input[type=radio]:focus + label {
+  background: #fff;
+}
+
+.countries input[type=radio]:active + label {
+  background: #333;
 }
 
 .finalDumpling {

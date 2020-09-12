@@ -146,8 +146,8 @@ dumplingApp.submitChoices = function() {
 
     filteredResults.forEach((result) => {
       $('.countriesFlex').append(`
-          <input type="radio" id="${result.origin}" name="country" value="${result.origin}">
-          <label for="${result.origin}" aria-label="click to display dumpling with origin of ${result.origin}" tabindex = "0"> ${result.origin}</label>
+          <input type="radio" id="${result.origin}" name="country" placeholder="${result.origin}" value="${result.origin}">
+          <label for="${result.origin}" aria-label="click to display dumpling with origin of ${result.origin}" tabindex = "0" visibility="hidden"> ${result.origin}</label>
       `);
     });
       dumplingApp.displayFinal();
@@ -156,9 +156,18 @@ dumplingApp.submitChoices = function() {
     // event listener on new form 
     // when button is clicked, the corresponding dumpling + recipe link will appear
   dumplingApp.displayFinal = function() {
-    $('.countriesFlex').on('keydown', function (e) {
+    $('input[type=radio]').on('keydown', function (e) {
       if (e.key === "Enter") {
         console.log(this);
+        const countrySelected = $(this).val();
+        console.log(countryResults);
+        countryResults.forEach(result => {
+          if (result.origin === countrySelected) {
+            $finalDumpling.empty();
+            $finalDumpling.append(`<p><span class="finalIntro">Get your dumpling recipe:</span> <a href="${result.recipe}" target="_blank">${result.name}</a></p>`).addClass('addBg');
+          }
+        })
+        dumplingApp.scrollBottom();
       }
     })
 
