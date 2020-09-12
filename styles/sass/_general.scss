@@ -95,6 +95,7 @@ label,
 input,
 [type=submit],
 a {
+    border: 3px solid transparent;
     &:hover {
         transform: scale(1.1);
     }
@@ -118,7 +119,7 @@ section:nth-of-type(odd) {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: 70vh;
     div {
         padding: 20px;
     }
@@ -174,7 +175,9 @@ section:nth-of-type(odd) {
     max-width: 600px;
     margin: 0 auto;
     a {
-        font-size: clamp(3rem, 5vw, 5rem);
+        font-size: clamp(4rem, 5vw, 5rem);
+        text-shadow: 3px 3px $accent;
+        text-decoration: none;
         padding: 10px 0px;
         width: auto;
         display: block;
@@ -190,4 +193,9 @@ section:nth-of-type(odd) {
     border-radius: 15px;
     padding: 15px 25px;
     color: $primary;
+}
+
+.highlight {
+    // line-height: 2rem;
+    background-color: $secondary;
 }

@@ -327,6 +327,13 @@ a:hover {
   cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'  width='40' height='48' viewport='0 0 100 100' style='fill:black;font-size:24px;'><text y='50%'>🥟</text></svg>") 16 0, auto;
 }
 
+label,
+input,
+[type=submit],
+a {
+  border: 3px solid transparent;
+}
+
 label:hover,
 input:hover,
 [type=submit]:hover,
@@ -367,7 +374,7 @@ section:nth-of-type(odd) a {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  height: 100vh;
+  height: 70vh;
 }
 
 .filter div {
@@ -457,7 +464,8 @@ section:nth-of-type(odd) a {
 }
 
 .finalDumpling a {
-  font-size: clamp(3rem, 5vw, 5rem);
+  font-size: clamp(4rem, 5vw, 5rem);
+  text-shadow: 3px 3px #f4e6b7;
   padding: 10px 0px;
   width: auto;
   display: block;
@@ -473,6 +481,10 @@ section:nth-of-type(odd) a {
   border-radius: 15px;
   padding: 15px 25px;
   color: #a48c63;
+}
+
+.highlight {
+  background-color: #f4e6b7;
 }
 
 @media (max-width: 768px) {
