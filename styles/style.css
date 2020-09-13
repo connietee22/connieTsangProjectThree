@@ -349,14 +349,16 @@ a:hover {
 input,
 .nextButtons,
 [type=submit],
-[type=radio] + label {
+[type=radio] + label,
+a {
   border: 3px solid transparent;
 }
 
 input:hover,
 .nextButtons:hover,
 [type=submit]:hover,
-[type=radio] + label:hover {
+[type=radio] + label:hover,
+a:hover {
   -webkit-transform: scale(1.1);
           transform: scale(1.1);
 }
@@ -364,7 +366,8 @@ input:hover,
 input:focus,
 .nextButtons:focus,
 [type=submit]:focus,
-[type=radio] + label:focus {
+[type=radio] + label:focus,
+a:focus {
   border: 3px solid #eb6f5d;
   outline: none;
 }
@@ -484,29 +487,51 @@ input:focus,
           justify-content: center;
   max-width: 600px;
   margin: 0 auto;
+  -webkit-transition-duration: fade-in 2s;
+          transition-duration: fade-in 2s;
 }
 
 .finalDumpling a {
   font-size: clamp(4rem, 5vw, 5rem);
   text-shadow: 3px 3px #333;
   text-decoration: none;
+  background: -webkit-gradient(linear, left bottom, left top, color-stop(50%, #f4e6b7), color-stop(50%, white));
+  background: linear-gradient(to top, #f4e6b7 50%, white 50%);
   padding: 10px 0px;
   width: 100%;
   display: block;
   word-break: break-word;
-  background: -webkit-gradient(linear, left bottom, left top, color-stop(50%, #f4e6b7), color-stop(50%, transparent));
-  background: linear-gradient(to top, #f4e6b7 50%, transparent 50%);
+  border: 0;
+  -webkit-animation: fadeIn ease-in 3s;
+          animation: fadeIn ease-in 3s;
 }
 
-.finalDumpling a:hover {
-  -webkit-transform: scale(1.1);
-          transform: scale(1.1);
-  transform: scale(1.1);
+.finalDumpling a:focus {
+  border: 3px solid #eb6f5d;
+  outline: none;
 }
 
 .finalDumpling .finalIntro {
   font-size: clamp(1.6rem, 2vw, 2.5rem);
   color: #333;
+}
+
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 .addBg {

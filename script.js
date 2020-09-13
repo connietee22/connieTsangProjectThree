@@ -90,16 +90,29 @@ dumplingApp.validateForm = function () {
       $('.errorMessage').hide();
       return;
     } else {
-      // shows error message
-      $('.errorMessage').show();
+      dumplingApp.errorHandling();
     }
-  // })
+    // })
+  }
+  
+  dumplingApp.errorHandling = function() {
+    // shows error message
+    $('.errorMessage').show();
+    $('.resultsWrapper').hide();
 }
+
+
 
 dumplingApp.submitChoices = function() {
   $countries = $('.countries');
   $finalDumpling = $('.finalDumpling');
   
+  $('.dumplingSelection').on('change', function () {
+    $('.resultsWrapper').show();
+    $countries.empty();
+    $finalDumplings.empty();
+  });
+
   $('.dumplingSelection').on('submit', function(e) {
     e.preventDefault();
     // get the value of selected checkboxes in boiled || fried
@@ -128,13 +141,18 @@ dumplingApp.submitChoices = function() {
     // displays countries of all relevant dumplings
     dumplingApp.displayCountries(countryResults)
   });
+
+  
 }  
 
   //DISPLAYS THE FINAL DUMPLING AS A CHOICE FROM THE COUNTRY BUTTONS
   dumplingApp.displayCountries = function(filteredResults) {
     $('.results').show();
     // to scroll the results into view as it's populated
-    dumplingApp.scrollBottom();
+    if (!$('.errorMessage').is(':visible')) {
+      dumplingApp.scrollBottom();
+    };
+    
     // clearing containers for new searches
     $countries.empty();
     $finalDumpling.empty();
@@ -173,6 +191,7 @@ dumplingApp.submitChoices = function() {
       countryResults.forEach(result => {
         if (result.origin === countrySelected) {
           $finalDumpling.empty();
+          
           $finalDumpling.append(`
             <p>
               <span class="finalIntro">Get your dumpling recipe:</span>
@@ -180,7 +199,7 @@ dumplingApp.submitChoices = function() {
             <p>
               <a href="${result.recipe}" target="_blank">${result.name}</a>
             </p>
-          `).addClass('addBg');
+          `).addClass('addBg').addClass('fadeIn');
         }
       });
       dumplingApp.scrollBottom();
@@ -200,9 +219,10 @@ dumplingApp.submitChoices = function() {
     $('header img').addClass('glow');
   }
 
-
+//****INIT
 dumplingApp.init = function() {
 
+  // TO ADD GLOW AFTER ANIMATE ROLL-IN
   $('header img').on('animationend webkitAnimationEnd', function() {
     dumplingApp.addGlow();
   })
@@ -226,11 +246,14 @@ dumplingApp.init = function() {
   });
   $('form').on('submit', function(e) {
     e.preventDefault();
+    $countries.empty();
+    $finalDumpling.empty();
     // to check for errors before proceeding
     dumplingApp.validateForm();
-    // to submit choices
-    dumplingApp.submitChoices();
   })
+
+  // to submit choices
+  dumplingApp.submitChoices();
 };
 
 $(document).ready(function(){
