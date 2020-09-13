@@ -447,14 +447,11 @@ section:nth-of-type(odd) a {
   text-align: center;
 }
 
-.countries label:focus {
-  background: #333;
-}
-
 .countries input {
   opacity: 0;
 }
 
+.countries input:checked + label,
 .countries input:focus + label {
   background: #333;
 }

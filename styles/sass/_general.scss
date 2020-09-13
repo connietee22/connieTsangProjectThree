@@ -167,12 +167,10 @@ section:nth-of-type(odd) {
         background-color: $secondary;
         color: $primary;
         text-align: center;
-        &:focus {
-            background: $dark;
-        }
     }
     input {
         opacity: 0;
+        &:checked + label,
         &:focus + label {
             background: $dark;
         }
