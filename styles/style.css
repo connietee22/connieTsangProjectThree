@@ -252,18 +252,18 @@ h1 {
 h2,
 label {
   font-family: 'Roboto', sans-serif;
+  font-size: clamp(1.7rem, 2vw, 2.4rem);
 }
 
 h2 {
-  font-size: clamp(1.6rem, 2vw, 3rem);
   text-transform: lowercase;
   font-weight: 300;
   padding-bottom: 20px;
 }
 
 label {
-  font-size: clamp(1.7rem, 2vw, 2.4rem);
   text-transform: uppercase;
+  line-height: 1.6;
 }
 
 p {
@@ -271,6 +271,21 @@ p {
   font-weight: 300;
   line-height: 1.6;
   text-align: center;
+}
+
+section {
+  min-height: 350px;
+  padding: 100px;
+}
+
+section:nth-of-type(odd) {
+  background-color: #a48c63;
+  color: #fff;
+}
+
+section:nth-of-type(odd) a {
+  background-color: #fff;
+  color: #a48c63;
 }
 
 header {
@@ -284,6 +299,7 @@ header {
       -ms-flex-pack: center;
           justify-content: center;
   height: 100vh;
+  min-height: 525px;
 }
 
 header img {
@@ -351,21 +367,6 @@ input:focus,
 [type=radio] + label:focus {
   border: 3px solid #eb6f5d;
   outline: none;
-}
-
-section {
-  min-height: 350px;
-  padding: 100px;
-}
-
-section:nth-of-type(odd) {
-  background-color: #a48c63;
-  color: #fff;
-}
-
-section:nth-of-type(odd) a {
-  background-color: #fff;
-  color: #a48c63;
 }
 
 .filter {
@@ -511,17 +512,32 @@ footer {
   display: flex;
   min-height: 40px;
   padding-bottom: 10px;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
   background-color: #333;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   margin: 0 auto;
+  padding: 0;
 }
 
+footer div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+footer a,
 footer p {
   font-size: 1.2rem;
-  color: #fff;
+  color: #f4e6b7;
 }
 
 @media (max-width: 768px) {
