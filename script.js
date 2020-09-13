@@ -192,7 +192,7 @@ dumplingApp.submitChoices = function() {
     console.log($(document).height());
     $('html, body').animate({
       scrollTop: bottom
-    }, 1500);
+    }, 800);
   };
 
 
