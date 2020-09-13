@@ -171,7 +171,6 @@ dumplingApp.submitChoices = function() {
 
       //get value of country button selected
       const countrySelected = $(this).val();
-      console.log(countryResults);
       countryResults.forEach(result => {
         if (result.origin === countrySelected) {
           $finalDumpling.empty();
@@ -195,8 +194,21 @@ dumplingApp.submitChoices = function() {
     }, 800);
   };
 
+  dumplingApp.headerEntry = function() {
+    console.log("glow is supposed to work here");
+    $('header img').addClass('glow');
+    $('header img').on('animationend webkitAnimationEnd', function() {
+      $('header img').addClass('imgSquare');
+    })
+  }
+
 
 dumplingApp.init = function() {
+
+  $('header.wrapper').on('animationend webkitAnimationEnd', function() {
+    dumplingApp.headerEntry();
+  })
+
 
   // SMOOTH ANIMATE SCROLLING - FROM VARIOUS W3 SCHOOLS + STACK OVERFLOW SOURCES  
   $('a').on('click', function (e) {
@@ -215,11 +227,12 @@ dumplingApp.init = function() {
       });
     }
   });
+    // to check for errors before proceeding
     dumplingApp.validateForm();
+    // to submit choices
     dumplingApp.submitChoices();
 };
 
 $(document).ready(function(){
   dumplingApp.init();
-
 });

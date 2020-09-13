@@ -64,6 +64,10 @@ header {
         flex-direction: column;
         flex-shrink: 1;
     }
+    .glow {
+        filter: drop-shadow(-5px 10px 10px $secondary);
+        transition-duration: .75s;
+    }
 }
 
 [type=submit],
@@ -89,8 +93,9 @@ a {
 }
 
 input,
-[type=submit],
-a {
+.nextButtons,
+[type=submit]
+[type=radio] + label {
     border: 3px solid transparent;
     &:hover {
         transform: scale(1.1);
@@ -211,16 +216,10 @@ footer {
     padding-bottom: 10px;
     flex-wrap: wrap;
     background-color: $dark;
-    color: $light;
     justify-content: space-around;
     margin: 0 auto;
-
-    a,
     p {
         font-size: 1.2rem;
-    }
-    a {
-        text-decoration: none;
         color: $light;
     }
 }
