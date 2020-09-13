@@ -57,9 +57,9 @@ section {
 
 section:nth-of-type(odd) {
     background-color: $primary;
-    color: #fff;
+    color: $light;
     a {
-        background-color: #fff;
+        background-color: $light;
         color: $primary;
     }
 }

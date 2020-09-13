@@ -83,18 +83,17 @@ dumplingApp.countryResults = []; // *** HELPCUE - RESULTS WOULD NOT POST UNLESS 
 // check if at least one box has been checked in each section before proceeding
 dumplingApp.validateForm = function () {
 
-  $('.dumplingSelection').on('submit', function (e) {
-    e.preventDefault();
+  // $('.dumplingSelection').on('submit', function (e) {
+  //   e.preventDefault();
     if ($('#fillings input').is(':checked')) {
       // to reset the hide if the error is corrected
       $('.errorMessage').hide();
       return;
     } else {
       // shows error message
-      $('a').stop();
       $('.errorMessage').show();
     }
-  })
+  // })
 }
 
 dumplingApp.submitChoices = function() {
@@ -208,7 +207,6 @@ dumplingApp.init = function() {
     dumplingApp.addGlow();
   })
 
-
   // SMOOTH ANIMATE SCROLLING - FROM VARIOUS W3 SCHOOLS + STACK OVERFLOW SOURCES  
   $('a').on('click', function (e) {
     // Make sure this's ID hash has a value before overriding default behavior
@@ -226,10 +224,13 @@ dumplingApp.init = function() {
       });
     }
   });
+  $('form').on('submit', function(e) {
+    e.preventDefault();
     // to check for errors before proceeding
     dumplingApp.validateForm();
     // to submit choices
     dumplingApp.submitChoices();
+  })
 };
 
 $(document).ready(function(){
