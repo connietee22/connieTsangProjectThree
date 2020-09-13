@@ -43,16 +43,17 @@ label {
     line-height: 1.6
 }
 
-p {
-    font-size: clamp(2.5rem, 2.3vw, 4rem);
-    font-weight: 300;
-    line-height: 1.6;
-    text-align: center;
-}
+
 
 section {
     min-height: 350px;
     padding: 100px 0px;
+    p {
+        font-size: clamp(2.5rem, 2.3vw, 4rem);
+        font-weight: 300;
+        line-height: 1.6;
+        text-align: center;
+    }
 }
 
 section:nth-of-type(odd) {
@@ -188,7 +189,7 @@ a {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    max-width: 600px;
+    max-width: 700px;
     margin: 0 auto;
     transition-duration: fade-in 2s;
     a {
@@ -219,13 +220,20 @@ a {
             opacity:1;
         }
     }
-    .tryAgain {
-        display: none;
-        font-size: clamp(1.5rem, 1.8vw, 2rem);
+    
+}
+
+.tryAgain {
+    a {
         color: $dark;
         margin-top: 40px;
+        font-size: clamp(1.5rem, 1.5vw, 1.5rem);
+        text-shadow: none;
+        border-bottom: 1px solid $primary;
         text-align: right;
     }
+    
+    
 }
 
 .imageResultContainer {
@@ -236,6 +244,11 @@ a {
     img {
         width: 200px;
         margin: 30px 30px 0px 0px;
+    }
+    div {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
     }
 }
 

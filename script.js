@@ -206,7 +206,14 @@ dumplingApp.displayFinal = function() {
                 <a href="${result.recipe}" target="_blank">${result.name}</a>
               </p>
             </div>
+            <div class="tryAgain">
+              <p>
+                <a href="#startJourney">start over?</a>
+              </p>
           </div>
+          </div>
+          
+          
         `
 					)
 					.addClass('addBg')

@@ -266,16 +266,16 @@ label {
   line-height: 1.6;
 }
 
-p {
+section {
+  min-height: 350px;
+  padding: 100px 0px;
+}
+
+section p {
   font-size: clamp(2.5rem, 2.3vw, 4rem);
   font-weight: 300;
   line-height: 1.6;
   text-align: center;
-}
-
-section {
-  min-height: 350px;
-  padding: 100px 0px;
 }
 
 section:nth-of-type(odd) {
@@ -480,7 +480,7 @@ a:focus {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  max-width: 600px;
+  max-width: 700px;
   margin: 0 auto;
   -webkit-transition-duration: fade-in 2s;
           transition-duration: fade-in 2s;
@@ -529,11 +529,12 @@ a:focus {
   }
 }
 
-.finalDumpling .tryAgain {
-  display: none;
-  font-size: clamp(1.5rem, 1.8vw, 2rem);
+.tryAgain a {
   color: #333;
   margin-top: 40px;
+  font-size: clamp(1.5rem, 1.5vw, 1.5rem);
+  text-shadow: none;
+  border-bottom: 1px solid #a48c63;
   text-align: right;
 }
 
@@ -553,6 +554,18 @@ a:focus {
 .imageResultContainer img {
   width: 200px;
   margin: 30px 30px 0px 0px;
+}
+
+.imageResultContainer div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
 
 .addBg {
