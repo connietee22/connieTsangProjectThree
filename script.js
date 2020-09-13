@@ -141,7 +141,7 @@ dumplingApp.submitChoices = function() {
     
     $countries.append(`
       <p>Choose your dumpling's origin</p>
-      <form class="countriesFlex"></form>
+      <fieldset class="countriesFlex"></fieldset>
     `);
 
     filteredResults.forEach((result) => {
@@ -154,7 +154,7 @@ dumplingApp.submitChoices = function() {
       dumplingApp.displayFinal();
   }
 
-    // event listener on new form 
+    // event listener on new fieldset
     // when button is clicked, the corresponding dumpling + recipe link will appear
   dumplingApp.displayFinal = function() {
     $('input[type=radio]').on('keydown', function (e) {
