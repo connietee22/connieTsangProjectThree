@@ -194,19 +194,15 @@ dumplingApp.submitChoices = function() {
     }, 800);
   };
 
-  dumplingApp.headerEntry = function() {
-    console.log("glow is supposed to work here");
+  dumplingApp.addGlow = function() {
     $('header img').addClass('glow');
-    $('header img').on('animationend webkitAnimationEnd', function() {
-      $('header img').addClass('imgSquare');
-    })
   }
 
 
 dumplingApp.init = function() {
 
-  $('header.wrapper').on('animationend webkitAnimationEnd', function() {
-    dumplingApp.headerEntry();
+  $('header img').on('animationend webkitAnimationEnd', function() {
+    dumplingApp.addGlow();
   })
 
 
