@@ -52,7 +52,7 @@ p {
 
 section {
     min-height: 350px;
-    padding: 100px;
+    padding: 100px 0px;
 }
 
 section:nth-of-type(odd) {
@@ -109,7 +109,7 @@ a {
 
 input,
 .nextButtons,
-[type=submit]
+[type=submit],
 [type=radio] + label {
     border: 3px solid transparent;
     &:hover {
@@ -146,8 +146,9 @@ input,
 
 .results {
     display: none;
-    padding: 100px;
+    padding: 100px 0px;
     .tryAgain {
+        margin-top: 40px;
         text-align: right;
     }
 }
@@ -194,14 +195,20 @@ input,
     margin: 0 auto;
     a {
         font-size: clamp(4rem, 5vw, 5rem);
-        text-shadow: 3px 3px $accent;
+        text-shadow: 3px 3px $dark;
         text-decoration: none;
         padding: 10px 0px;
-        width: auto;
+        width: 100%;
         display: block;
+        word-break: break-word;
+        &:hover {
+            transform: scale(1.1);transform: scale(1.1);
+        }
+        background: linear-gradient(to top, $secondary 50%, transparent 50%);
     }
     .finalIntro {
         font-size: clamp(1.6rem, 2vw, 2.5rem);
+        color: $dark;
     }
 }
 

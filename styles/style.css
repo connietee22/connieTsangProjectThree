@@ -275,7 +275,7 @@ p {
 
 section {
   min-height: 350px;
-  padding: 100px;
+  padding: 100px 0px;
 }
 
 section:nth-of-type(odd) {
@@ -348,14 +348,14 @@ a:hover {
 
 input,
 .nextButtons,
-[type=submit]
+[type=submit],
 [type=radio] + label {
   border: 3px solid transparent;
 }
 
 input:hover,
 .nextButtons:hover,
-[type=submit]
+[type=submit]:hover,
 [type=radio] + label:hover {
   -webkit-transform: scale(1.1);
           transform: scale(1.1);
@@ -363,7 +363,7 @@ input:hover,
 
 input:focus,
 .nextButtons:focus,
-[type=submit]
+[type=submit]:focus,
 [type=radio] + label:focus {
   border: 3px solid #eb6f5d;
   outline: none;
@@ -406,10 +406,11 @@ input:focus,
 
 .results {
   display: none;
-  padding: 100px;
+  padding: 100px 0px;
 }
 
 .results .tryAgain {
+  margin-top: 40px;
   text-align: right;
 }
 
@@ -487,15 +488,25 @@ input:focus,
 
 .finalDumpling a {
   font-size: clamp(4rem, 5vw, 5rem);
-  text-shadow: 3px 3px #eb6f5d;
+  text-shadow: 3px 3px #333;
   text-decoration: none;
   padding: 10px 0px;
-  width: auto;
+  width: 100%;
   display: block;
+  word-break: break-word;
+  background: -webkit-gradient(linear, left bottom, left top, color-stop(50%, #f4e6b7), color-stop(50%, transparent));
+  background: linear-gradient(to top, #f4e6b7 50%, transparent 50%);
+}
+
+.finalDumpling a:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+  transform: scale(1.1);
 }
 
 .finalDumpling .finalIntro {
   font-size: clamp(1.6rem, 2vw, 2.5rem);
+  color: #333;
 }
 
 .addBg {

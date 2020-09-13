@@ -7,7 +7,7 @@ const dumplings = {
       recipe: "https://www.panningtheglobe.com/turkish-manti/"
     },
     {
-      name: "kartoffelknödel",
+      name: "kartoffel knödel",
       origin: "Germany",
       filling: "veg",
       recipe: "http://www.bavariankitchen.com/sides/knoedel.aspx"
@@ -176,7 +176,10 @@ dumplingApp.submitChoices = function() {
           $finalDumpling.empty();
           $finalDumpling.append(`
             <p>
-              <span class="finalIntro">Get your dumpling recipe:</span> <a href="${result.recipe}" target="_blank">${result.name}</a>
+              <span class="finalIntro">Get your dumpling recipe:</span>
+            </p>
+            <p>
+              <a href="${result.recipe}" target="_blank">${result.name}</a>
             </p>
           `).addClass('addBg');
         }
