@@ -91,6 +91,7 @@ dumplingApp.validateForm = function () {
       return;
     } else {
       // shows error message
+      $('a').stop();
       $('.errorMessage').show();
     }
   })
@@ -116,99 +117,74 @@ dumplingApp.submitChoices = function() {
 
     const chosenDumplingType = dumplings[dumplingApp.dumplingType];
     console.log(chosenDumplingType);
-    // filling in countryResults array with appropriate dumplings -- both will have everything with a meat and veg filling
+    // populates countryResults array with appropriate dumplings -- a selection of "both" will include everything in the chosenDumplingType array
     if (dumplingApp.fillingType === "both") {
       countryResults = chosenDumplingType;
     } else {
-    // otherwise, if user selects meat OR veg choice, cycle through dumpling objects to only include appropriately filled dumplings in new countryResults array  
+    // otherwise, if user selects meat OR veg choice, this cycles through dumpling objects to only include appropriately filled dumplings in new countryResults array  
       countryResults = chosenDumplingType.filter((dumpling) => {
         return dumpling.filling === dumplingApp.fillingType;
       })
     }
     // displays countries of all relevant dumplings
-    dumplingApp.displayCountries(countryResults) //****HELPCUE Why does this not work in init? DOES NOT SHOW COUNTRIES*/
+    dumplingApp.displayCountries(countryResults)
   });
 }  
 
-  //DISPLAYING THE FINAL DUMPLING AS A CHOICE FROM THE COUNTRY BUTTONS
+  //DISPLAYS THE FINAL DUMPLING AS A CHOICE FROM THE COUNTRY BUTTONS
   dumplingApp.displayCountries = function(filteredResults) {
     $('.results').show();
-    
+    // to scroll the results into view as it's populated
     dumplingApp.scrollBottom();
+    // clearing containers for new searches
     $countries.empty();
     $finalDumpling.empty();
+    // to remove the white background when contents are emptied
     $finalDumpling.removeClass('addBg')
     
     $countries.append(`
       <p>Choose your dumpling's origin</p>
-      <fieldset class="countriesFlex"></fieldset>
+      <form>
+        <fieldset class="countriesFlex"></fieldset>
+      </form>
     `);
 
+    // going through filtered results array and appending each one to the div 
     filteredResults.forEach((result) => {
+      // tab index not needed as radio buttons cycle through with left and right arrows
       $('.countriesFlex').append(`
-          
           <input type="radio" id="${result.origin}" name="country" value="${result.origin}">
-          <label for="${result.origin}" aria-label="click to display dumpling with origin of ${result.origin}" tabindex = "0" visibility="hidden"> ${result.origin}</label>
+          <label for="${result.origin}" aria-label="click to display dumpling with origin of ${result.origin}" visibility="hidden"> ${result.origin}</label>
       `);
     });
       dumplingApp.displayFinal();
   }
 
-    // event listener on new fieldset
-    // when button is clicked, the corresponding dumpling + recipe link will appear
+  // event listener on new fieldset
+  // when change occurs, the corresponding dumpling + recipe link will appear
   dumplingApp.displayFinal = function() {
-    $('input[type=radio]').on('keydown', function (e) {
-      if (e.key === "Enter") {
-        console.log(this);
-        const countrySelected = $(this).val();
-        console.log(countryResults);
-        countryResults.forEach(result => {
-          if (result.origin === countrySelected) {
-            $finalDumpling.empty();
-            $finalDumpling.append(`<p><span class="finalIntro">Get your dumpling recipe:</span> <a href="${result.recipe}" target="_blank">${result.name}</a></p>`).addClass('addBg');
-          }
-        })
-        dumplingApp.scrollBottom();
-      }
-    })
 
     // on change of countries radio button, display corresponding dumpling recipe
+    // radio buttons can be selected by tabbing into the first button and clicking left to right arrows, as per radio button navigation
     $('[name=country]').on('change', function (e) {
       e.preventDefault();
-      
+
       //get value of country button selected
       const countrySelected = $(this).val();
       console.log(countryResults);
       countryResults.forEach(result => {
         if (result.origin === countrySelected) {
           $finalDumpling.empty();
-          $finalDumpling.append(`<p><span class="finalIntro">Get your dumpling recipe:</span> <a href="${result.recipe}" target="_blank">${result.name}</a></p>`).addClass('addBg');
+          $finalDumpling.append(`
+            <p>
+              <span class="finalIntro">Get your dumpling recipe:</span> <a href="${result.recipe}" target="_blank">${result.name}</a>
+            </p>
+          `).addClass('addBg');
         }
-      })
+      });
       dumplingApp.scrollBottom();
     });
   };
-  
-
-//****ORIGINAL DISPLAY FINAL DUMPLING */
-//  dumplingApp.displayFinal = function() {
-// $('[name=country]').on('change', function (e) {
-//   e.preventDefault();
-
-//   //get value of country button selected
-//   const countrySelected = $(this).val();
-//   console.log(countryResults);
-//   countryResults.forEach(result => {
-//     if (result.origin === countrySelected) {
-//       $finalDumpling.empty();
-//       $finalDumpling.append(`<p><span class="finalIntro">Get your dumpling recipe:</span> <a href="${result.recipe}" target="_blank">${result.name}</a></p>`).addClass('addBg');
-//     }
-//   })
-//   dumplingApp.scrollBottom();
-// });
-//   };
-
-
   
   // scrolling to bottom of page on click
   dumplingApp.scrollBottom = function() {
@@ -216,25 +192,24 @@ dumplingApp.submitChoices = function() {
     console.log($(document).height());
     $('html, body').animate({
       scrollTop: bottom
-    }, 900);
+    }, 1500);
   };
 
 
 dumplingApp.init = function() {
 
-  // smooth scrolling - from W3 Schools 
-  $('a').on('click', function (event) {
-
-    // Make sure this.hash has a value before overriding default behavior
+  // SMOOTH ANIMATE SCROLLING - FROM VARIOUS W3 SCHOOLS + STACK OVERFLOW SOURCES  
+  $('a').on('click', function (e) {
+    // Make sure this's ID hash has a value before overriding default behavior
     if (this.hash !== "") {
-      // Store hash
+    // Store hash
       const hash = this.hash;
-      event.preventDefault();
+      e.preventDefault();
       // animate() method to add smooth scroll
-      // 900 milliseconds to scroll to area
+      // 800 milliseconds to scroll to top of ID area
       $('html, body').animate({
         scrollTop: $(hash).offset().top
-      }, 900, function () {
+      }, 800, function () {
       // Add hash (#) to URL when done scrolling (default click behavior)
       window.location.hash = hash;
       });
