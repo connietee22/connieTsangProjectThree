@@ -78,39 +78,41 @@ const dumplings = {
 }
 
 const dumplingApp = {};
-dumplingApp.countryResults = []; // *** HELPCUE - RESULTS WOULD NOT POST UNLESS I PUT THIS IN GLOBAL SCOPE
+dumplingApp.countryResults = [];
+$countries = $('.countries');
+$finalDumpling = $('.finalDumpling');
 
 // check if at least one box has been checked in each section before proceeding
 dumplingApp.validateForm = function () {
-
-  // $('.dumplingSelection').on('submit', function (e) {
-  //   e.preventDefault();
-    if ($('#fillings input').is(':checked')) {
-      // to reset the hide if the error is corrected
-      $('.errorMessage').hide();
-      return;
-    } else {
-      dumplingApp.errorHandling();
-    }
-    // })
+  // handling when to show error message
+  if ($('#fillings input').is(':checked')) {
+    // to reset the hide if the error is corrected
+    $('.errorMessage').hide();
+    return;
+  } else {
+    dumplingApp.errorHandling();
   }
+}
   
-  dumplingApp.errorHandling = function() {
-    // shows error message
+dumplingApp.errorHandling = function() {
+
+    // shows error message and removes information from 
     $('.errorMessage').show();
-    $('.resultsWrapper').hide();
+    $('.resultContainer').hide();
+    $countries.empty();
+	$finalDumpling.empty();
 }
 
-
-
+//***SUBMIT CHOICES FUNCTION */
 dumplingApp.submitChoices = function() {
   $countries = $('.countries');
   $finalDumpling = $('.finalDumpling');
   
-  $('.dumplingSelection').on('change', function () {
-    $('.resultsWrapper').show();
+  $('form').on('change', function () {
+    $('.resultContainer').show();
     $countries.empty();
-    $finalDumplings.empty();
+    $finalDumpling.empty();
+    $('.finalDumpling').removeClass('addBg');
   });
 
   $('.dumplingSelection').on('submit', function(e) {
@@ -141,90 +143,106 @@ dumplingApp.submitChoices = function() {
     // displays countries of all relevant dumplings
     dumplingApp.displayCountries(countryResults)
   });
-
-  
 }  
 
   //DISPLAYS THE FINAL DUMPLING AS A CHOICE FROM THE COUNTRY BUTTONS
-  dumplingApp.displayCountries = function(filteredResults) {
-    $('.results').show();
-    // to scroll the results into view as it's populated
-    if (!$('.errorMessage').is(':visible')) {
-      dumplingApp.scrollBottom();
-    };
-    
-    // clearing containers for new searches
-    $countries.empty();
-    $finalDumpling.empty();
-    // to remove the white background when contents are emptied
-    $finalDumpling.removeClass('addBg')
-    
-    $countries.append(`
-      <p>Choose your dumpling's origin</p>
-      <form>
-        <fieldset class="countriesFlex"></fieldset>
-      </form>
-    `);
-
-    // going through filtered results array and appending each one to the div 
-    filteredResults.forEach((result) => {
-      // tab index not needed as radio buttons cycle through with left and right arrows
-      $('.countriesFlex').append(`
-          <input type="radio" id="${result.origin}" name="country" value="${result.origin}">
-          <label for="${result.origin}" aria-label="click to display dumpling with origin of ${result.origin}" visibility="hidden"> ${result.origin}</label>
-      `);
-    });
-      dumplingApp.displayFinal();
-  }
-
-  // event listener on new fieldset
-  // when change occurs, the corresponding dumpling + recipe link will appear
-  dumplingApp.displayFinal = function() {
-
-    // on change of countries radio button, display corresponding dumpling recipe
-    // radio buttons can be selected by tabbing into the first button and clicking left to right arrows, as per radio button navigation
-    $('[name=country]').on('change', function (e) {
-      e.preventDefault();
-
-      //get value of country button selected
-      const countrySelected = $(this).val();
-      countryResults.forEach(result => {
-        if (result.origin === countrySelected) {
-          $finalDumpling.empty();
-          
-          $finalDumpling.append(`
-            <p>
-              <span class="finalIntro">Get your dumpling recipe:</span>
-            </p>
-            <p>
-              <a href="${result.recipe}" target="_blank">${result.name}</a>
-            </p>
-          `).addClass('addBg').addClass('fadeIn');
-        }
-      });
-      dumplingApp.scrollBottom();
-    });
+dumplingApp.displayCountries = function(filteredResults) {
+  $('.results').show();
+  // to scroll the results into view as it's populated
+  if (!$('.errorMessage').is(':visible')) {
+    dumplingApp.scrollBottom();
   };
   
-  // scrolling to bottom of page on click
-  dumplingApp.scrollBottom = function() {
-    const bottom = $(document).height() - $(window).height();
-    console.log($(document).height());
-    $('html, body').animate({
-      scrollTop: bottom
-    }, 800);
-  };
+  // clearing containers for new searches
+  $countries.empty();
+  $finalDumpling.empty();
+  // to remove the white background when contents are emptied
+  $finalDumpling.removeClass('addBg')
+  
+  $countries.append(`
+    <p>Choose your dumpling's origin</p>
+    <form>
+      <fieldset class="countriesFlex"></fieldset>
+    </form>
+  `);
 
-  dumplingApp.addGlow = function() {
-    $('header img').addClass('glow');
-  }
+  // going through filtered results array and appending each one to the div 
+  filteredResults.forEach((result) => {
+    // tab index not needed as radio buttons cycle through with left and right arrows
+    $('.countriesFlex').append(`
+        <input type="radio" id="${result.origin}" name="country" value="${result.origin}">
+        <label for="${result.origin}" aria-label="click to display dumpling with origin of ${result.origin}" visibility="hidden"> ${result.origin}</label>
+    `);
+  });
+    dumplingApp.displayFinal();
+}
+
+  
+//***DISPLAY FINAL DUMPLING
+//***when change occurs, the corresponding dumpling + recipe link will appear
+dumplingApp.displayFinal = function() {
+	//***event listener on new fieldset
+	// on change of countries radio button, display corresponding dumpling recipe
+	// radio buttons can be selected by tabbing into the first button and clicking left to right arrows, as per radio button navigation
+	$('[name=country]').on('change', function (e) {
+		e.preventDefault();
+
+		//get value of country button selected
+		const countrySelected = $(this).val();
+		countryResults.forEach((result) => {
+			if (result.origin === countrySelected) {
+				$finalDumpling.empty();
+				$finalDumpling
+					.html(
+						`
+          
+          <div class="imageResultContainer">
+            <img src="assets/dumplingVecteezyTwo.png" alt="anthropomorphized dumpling from Vecteezy.com"></>
+            <div>
+              <p>
+              <span class="finalIntro">Get your recipe:</span>
+              </p>
+              <p>
+                <a href="${result.recipe}" target="_blank">${result.name}</a>
+              </p>
+            </div>
+          </div>
+        `
+					)
+					.addClass('addBg')
+					.addClass('fadeIn');
+      }
+      console.log("this try again should show here");
+      $('.tryAgain').show();
+      dumplingApp.scrollBottom();
+		});
+	});
+};
+  
+//***scrolling to bottom of page on click
+dumplingApp.scrollBottom = function() {
+	const bottom = $(document).height() - $(window).height();
+	// const bottom = $(document).height();
+	console.log($(document).height());
+	$('html, body').animate(
+		{
+			scrollTop: bottom,
+		},
+		800
+	);
+};
+
+//***ADDING CLASSES*/
+dumplingApp.addBling = function(className) {
+  $('header img').addClass(className);
+}
 
 //****INIT
 dumplingApp.init = function() {
 
   // TO ADD GLOW AFTER ANIMATE ROLL-IN
   $('header img').on('animationend webkitAnimationEnd', function() {
-    dumplingApp.addGlow();
+    dumplingApp.addBling('glow');
   })
 
   // SMOOTH ANIMATE SCROLLING - FROM VARIOUS W3 SCHOOLS + STACK OVERFLOW SOURCES  
@@ -246,8 +264,11 @@ dumplingApp.init = function() {
   });
   $('form').on('submit', function(e) {
     e.preventDefault();
+  
     $countries.empty();
     $finalDumpling.empty();
+    $('.tryAgain').empty();
+
     // to check for errors before proceeding
     dumplingApp.validateForm();
   })
@@ -256,6 +277,8 @@ dumplingApp.init = function() {
   dumplingApp.submitChoices();
 };
 
+
+//***DOCUMENT READY - ON PAGE LOAD */
 $(document).ready(function(){
   dumplingApp.init();
 });

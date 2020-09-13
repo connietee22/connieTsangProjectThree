@@ -23,4 +23,11 @@
         text-align: center;
     }
 
+    .imageResultContainer {
+        flex-direction: column;
+        img {
+            margin: 20px 0px 20px;
+        }
+    }
+
 }

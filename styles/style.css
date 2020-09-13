@@ -412,11 +412,6 @@ a:focus {
   padding: 100px 0px;
 }
 
-.results .tryAgain {
-  margin-top: 40px;
-  text-align: right;
-}
-
 .countries {
   padding: 0px 0px 75px;
   display: -webkit-box;
@@ -497,13 +492,13 @@ a:focus {
   text-decoration: none;
   background: -webkit-gradient(linear, left bottom, left top, color-stop(50%, #f4e6b7), color-stop(50%, white));
   background: linear-gradient(to top, #f4e6b7 50%, white 50%);
-  padding: 10px 0px;
+  padding: 0px 0px;
   width: 100%;
   display: block;
   word-break: break-word;
   border: 0;
-  -webkit-animation: fadeIn ease-in 3s;
-          animation: fadeIn ease-in 3s;
+  -webkit-animation: fadeIn ease-in 2s;
+          animation: fadeIn ease-in 2s;
 }
 
 .finalDumpling a:focus {
@@ -532,6 +527,32 @@ a:focus {
   100% {
     opacity: 1;
   }
+}
+
+.finalDumpling .tryAgain {
+  display: none;
+  font-size: clamp(1.5rem, 1.8vw, 2rem);
+  color: #333;
+  margin-top: 40px;
+  text-align: right;
+}
+
+.imageResultContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  max-width: 600px;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.imageResultContainer img {
+  width: 200px;
+  margin: 30px 30px 0px 0px;
 }
 
 .addBg {
@@ -609,5 +630,14 @@ footer p {
   }
   .filter {
     text-align: center;
+  }
+  .imageResultContainer {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .imageResultContainer img {
+    margin: 20px 0px 20px;
   }
 }

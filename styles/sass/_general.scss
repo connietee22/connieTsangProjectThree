@@ -148,10 +148,6 @@ a {
 .results {
     display: none;
     padding: 100px 0px;
-    .tryAgain {
-        margin-top: 40px;
-        text-align: right;
-    }
 }
 
 .countries {
@@ -200,12 +196,12 @@ a {
         text-shadow: 3px 3px $dark;
         text-decoration: none;
         background: linear-gradient(to top, $secondary 50%, white 50%);
-        padding: 10px 0px;
+        padding: 0px 0px;
         width: 100%;
         display: block;
         word-break: break-word;
         border: 0;
-        animation: fadeIn ease-in 3s;
+        animation: fadeIn ease-in 2s;
         &:focus {
             border: 3px solid $accent;
             outline: none;
@@ -215,7 +211,6 @@ a {
         font-size: clamp(1.6rem, 2vw, 2.5rem);
         color: $dark;
     }
-    
     @keyframes fadeIn {
         0% {
             opacity:0;
@@ -224,7 +219,24 @@ a {
             opacity:1;
         }
     }
-  
+    .tryAgain {
+        display: none;
+        font-size: clamp(1.5rem, 1.8vw, 2rem);
+        color: $dark;
+        margin-top: 40px;
+        text-align: right;
+    }
+}
+
+.imageResultContainer {
+    display: flex;
+    max-width: 600px;
+    justify-content: space-between;
+    align-items: center;
+    img {
+        width: 200px;
+        margin: 30px 30px 0px 0px;
+    }
 }
 
 .addBg {
