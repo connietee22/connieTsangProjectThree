@@ -100,7 +100,8 @@ dumplingApp.errorHandling = function() {
     $('.errorMessage').show();
     $('.resultContainer').hide();
     $countries.empty();
-	$finalDumpling.empty();
+    $finalDumpling.empty();
+    $('.tryAgain').empty();
 }
 
 //***SUBMIT CHOICES FUNCTION */
@@ -112,6 +113,7 @@ dumplingApp.submitChoices = function() {
     $('.resultContainer').show();
     $countries.empty();
     $finalDumpling.empty();
+    $('.tryAgain').empty();
     $('.finalDumpling').removeClass('addBg');
   });
 
@@ -156,6 +158,7 @@ dumplingApp.displayCountries = function(filteredResults) {
   // clearing containers for new searches
   $countries.empty();
   $finalDumpling.empty();
+  $('.tryAgain').empty();
   // to remove the white background when contents are emptied
   $finalDumpling.removeClass('addBg')
   
@@ -191,7 +194,8 @@ dumplingApp.displayFinal = function() {
 		const countrySelected = $(this).val();
 		countryResults.forEach((result) => {
 			if (result.origin === countrySelected) {
-				$finalDumpling.empty();
+        $finalDumpling.empty();
+        $('.tryAgain').empty();
 				$finalDumpling
 					.html(
 						`
@@ -206,21 +210,18 @@ dumplingApp.displayFinal = function() {
                 <a href="${result.recipe}" target="_blank">${result.name}</a>
               </p>
             </div>
-            <div class="tryAgain">
-              <p>
-                <a href="#startJourney">start over?</a>
-              </p>
           </div>
-          </div>
-          
-          
         `
 					)
 					.addClass('addBg')
-					.addClass('fadeIn');
+          .addClass('fadeIn');
+          $('.resultContainer').append(`
+          <div class="tryAgain">
+              <p>
+                <a href="#startJourney">start over?</a>
+              </p>
+          </div>`);
       }
-      console.log("this try again should show here");
-      $('.tryAgain').show();
       dumplingApp.scrollBottom();
 		});
 	});

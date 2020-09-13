@@ -347,6 +347,7 @@ a:hover {
 }
 
 input,
+label,
 .nextButtons,
 [type=submit],
 [type=radio] + label,
@@ -355,6 +356,7 @@ a {
 }
 
 input:hover,
+label:hover,
 .nextButtons:hover,
 [type=submit]:hover,
 [type=radio] + label:hover,
@@ -364,6 +366,7 @@ a:hover {
 }
 
 input:focus,
+label:focus,
 .nextButtons:focus,
 [type=submit]:focus,
 [type=radio] + label:focus,
@@ -529,13 +532,21 @@ a:focus {
   }
 }
 
-.tryAgain a {
-  color: #333;
-  margin-top: 40px;
+.tryAgain p a {
   font-size: clamp(1.5rem, 1.5vw, 1.5rem);
+  color: #333;
   text-shadow: none;
-  border-bottom: 1px solid #a48c63;
-  text-align: right;
+  text-decoration: none;
+  -webkit-box-shadow: 3px 3px 0px #f4e6b7;
+          box-shadow: 3px 3px 0px #f4e6b7;
+  border-radius: 5px;
+  padding: 5px 10px;
+  margin-top: 40px;
+}
+
+.tryAgain p:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
 }
 
 .imageResultContainer {
@@ -543,9 +554,9 @@ a:focus {
   display: -ms-flexbox;
   display: flex;
   max-width: 600px;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -553,19 +564,7 @@ a:focus {
 
 .imageResultContainer img {
   width: 200px;
-  margin: 30px 30px 0px 0px;
-}
-
-.imageResultContainer div {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  margin: 30px 30px 30px 0px;
 }
 
 .addBg {
