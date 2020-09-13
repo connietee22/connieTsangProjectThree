@@ -4,15 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Connie Tsang - Project Three - Gimme A Dumpling</title>
-    <!-- google font imports -->
+    <!-- google font import -->
     <link href="https://fonts.googleapis.com/css2?family=McLaren&family=Roboto:wght@300;700&display=swap" rel="stylesheet">
+    <!-- animate.css import -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <!-- stylesheet import -->
     <link rel="stylesheet" href="./styles/style.css">
 </head>
 <body>
     <main>
         <header class="wrapper">
-            <img src="assets/dumplingVecteezy.png" alt="an excited anthropomorphized dumpling">
+            <img src="assets/dumplingVecteezy.png" alt="an excited anthropomorphized dumpling" class="animate__fadeInLeft">
             <div class="headerText">
                 <h1>Gimme a dumpling</h1>
                 <h2>let's find you something to cook!</h2>
@@ -27,11 +29,11 @@
                     <p>How do you like your dumplings?</p>
                     <div class="checkContainer">
                         <div>
-                            <input type="radio" id="boiled" aria-hidden="true" name="dumplingKind" value="boiled" checked="checked">
+                            <input type="radio" id="boiled" name="dumplingKind" value="boiled" checked="checked">
                             <label for="boiled" aria-label="click to select boiled dumpling">Boiled + steamy</label>
                         </div>
                         <div>
-                            <input type="radio" id="fried" name="dumplingKind" aria-hidden="true" value="fried">
+                            <input type="radio" id="fried" name="dumplingKind" value="fried">
                             <label for="fried" aria-label="click to select fried dumpling">Fried + crispy</label> 
                         </div>
                     </div>
@@ -43,17 +45,13 @@
                 <p>What's your filling?</p>
                 <div class="checkContainer">
                     <div>
-                        <input type="checkbox" id="meat" name="filling" aria-hidden="true" value="meat">
+                        <input type="checkbox" id="meat" name="filling" value="meat">
                         <label for="meat" aria-label="click to select meat filling">Meat</label>
                     </div>
                     <div>
-                        <input type="checkbox" id="veg" aria-hidden="true" name="filling" value="veg">
+                        <input type="checkbox" id="veg" name="filling" value="veg">
                         <label for="veg" aria-label="click to select vegetarian filling">Veggies</label>
                     </div>
-                    <!-- <div>
-                        <input type="radio" id="both" name="filling" aria-hidden="true" value="both">
-                        <label for="both" aria-label="click to select both meat and vegetarian">Surprise me</label>
-                    </div> -->
                 </div>
                 <input type="submit" name="submit" value="next"></input>
                 <div class="errorMessage">
