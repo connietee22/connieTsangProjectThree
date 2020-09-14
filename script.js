@@ -132,7 +132,6 @@ dumplingApp.submitChoices = function() {
     }
 
     const chosenDumplingType = dumplings[dumplingApp.dumplingType];
-    console.log(chosenDumplingType);
     // populates countryResults array with appropriate dumplings -- a selection of "both" will include everything in the chosenDumplingType array
     if (dumplingApp.fillingType === "both") {
       countryResults = chosenDumplingType;
@@ -215,25 +214,6 @@ dumplingApp.displayFinal = function() {
         $('.bottomButton').empty();
         $('.finalIntro').text(`Here's your recipe! ⬇`);
         $('.recipe').html(`<a href="${result.recipe}" target="_blank">${result.name}</a>`);
-
-        // TEMPORARILY MOVING ABOVE TO COUNTRY BUTTON CREATION
-				// $finalDumpling
-				// 	.html(
-				// 		`
-        //   <div class="imageResultContainer">
-        //     <img src="assets/dumplingVecteezyTwo.png" alt="anthropomorphized dumpling from Vecteezy.com"></>
-        //     <div>
-        //       <p>
-        //       <span class="finalIntro">Get your recipe</span>
-        //       </p>
-        //       <p class="recipe">
-        //         <a href="${result.recipe}" target="_blank">${result.name}</a>
-        //       </p>
-        //     </div>
-        //   </div>
-        // `
-				// 	)
-				// 	.addClass('addBg')
 					
           $('.resultContainer').append(`
           <div class="bottomButton">
@@ -246,7 +226,6 @@ dumplingApp.displayFinal = function() {
           </div>
           `);
       }
-      // dumplingApp.scrollBottom();
 		});
 	});
 };
@@ -255,7 +234,6 @@ dumplingApp.displayFinal = function() {
 dumplingApp.scrollBottom = function() {
 	// const bottom = $(document).height() - $(window).height();
 	const bottom = $(document).height();
-	console.log($(document).height());
 	$('html, body').animate(
 		{
 			scrollTop: bottom,

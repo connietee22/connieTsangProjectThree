@@ -420,6 +420,7 @@ a:focus {
 }
 
 .resultContainer {
+  width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -436,6 +437,7 @@ a:focus {
 
 .countries {
   padding: 0px;
+  margin-right: 40px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -449,13 +451,12 @@ a:focus {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  max-width: 420px;
+  width: calc(40% - 40px);
   text-align: center;
 }
 
 .countries p {
   font-size: clamp(2rem, 2vw, 2.6rem);
-  text-align: left;
 }
 
 .countries span {
@@ -479,7 +480,7 @@ a:focus {
 
 .countries label {
   font-size: clamp(1.6rem, 2vw, 2rem);
-  width: calc((100% - 60px) / 2);
+  width: calc((100% - 50px) / 2);
   margin: 10px 20px 10px 0px;
   border-radius: 5px;
   padding: 10px 20px;
@@ -512,8 +513,8 @@ a:focus {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  width: 600px;
-  height: 400px;
+  width: 60%;
+  min-height: 300px;
 }
 
 .finalDumpling a {
@@ -522,7 +523,7 @@ a:focus {
   text-decoration: none;
   background: -webkit-gradient(linear, left bottom, left top, color-stop(50%, #f4e6b7), color-stop(50%, white));
   background: linear-gradient(to top, #f4e6b7 50%, white 50%);
-  padding: 0px 0px;
+  padding: 0px;
   width: 100%;
   display: block;
   word-break: break-word;
@@ -636,6 +637,27 @@ footer a,
 footer p {
   font-size: 1.2rem;
   color: #f4e6b7;
+}
+
+@media (max-width: 1125px) {
+  .resultContainer {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    width: 100%;
+  }
+  .countries {
+    margin: 0px 0px 30px;
+  }
+  .countries .countriesFlex {
+    padding-top: 0px;
+    width: 100%;
+    text-align: center;
+  }
+  .countries .countriesFlex label {
+    width: 100%;
+  }
 }
 
 @media (max-width: 768px) {

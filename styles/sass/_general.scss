@@ -154,6 +154,7 @@ a {
 
 // USE THIS CODE TO STYLIZE RESULTS SECTION AFTER
 .resultContainer {
+    width: 100%;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -163,15 +164,15 @@ a {
 
 .countries {
     padding: 0px;
+    margin-right: 40px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    max-width: 420px;
+    width: calc(40% - 40px);
     text-align: center;
     p {
         font-size: clamp(2.0rem, 2vw, 2.6rem);
-        text-align: left;
     }
     span {
         display: block;
@@ -186,7 +187,7 @@ a {
     }
     label {
         font-size: clamp(1.6rem, 2vw, 2rem);
-        width: calc((100% - 60px) / 2);
+        width: calc((100% - 50px) / 2);
         margin: 10px 20px 10px 0px;
         border-radius: 5px;
         padding: 10px 20px;
@@ -209,14 +210,14 @@ a {
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    width: 600px;
-    height: 400px;
+    width: 60%;
+    min-height: 300px;
     a {
         font-size: clamp(3rem, 3vw, 4rem);
         text-shadow: 3px 3px $dark;
         text-decoration: none;
         background: linear-gradient(to top, $secondary 50%, white 50%);
-        padding: 0px 0px;
+        padding: 0px;
         width: 100%;
         display: block;
         word-break: break-word;
@@ -255,22 +256,9 @@ a {
             }
         a {
             color: $dark;
-            
         }
     }
-    
-    // button {
-    //     p {
-    //         font-size: clamp(1.5rem, 1.5vw, 1.5rem);
-    //         &:hover {
-    //             transform: scale(1.1);
-    //         }
-    // }
-    // }
 }
-
-
-
 
 .imageResultContainer {
     display: flex;
