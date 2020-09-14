@@ -5,11 +5,8 @@
         width: 100%;
     }
 
-    
-
     .countries {
         margin: 0px 0px 30px;
-       
         .countriesFlex {
             // flex-direction: column;
             padding-top: 0px;
@@ -17,7 +14,14 @@
             text-align: center;
             label {
                 width: 100%;
+                margin: 0 auto;
             }
+        }
+    }
+
+    .finalDumpling {
+        a {
+            text-shadow: 2px 2px $dark;
         }
     }
 }
@@ -60,7 +64,7 @@
     }
     .finalDumpling {
         margin-bottom: 30px;
-
+        
     }
 
     .bottomButton {

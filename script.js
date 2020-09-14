@@ -1,3 +1,4 @@
+//DATA OBJECTS FOR DUMPLINGS -- BOILED + FRIED
 const dumplings = {
   boiled: [
     {
@@ -77,40 +78,43 @@ const dumplings = {
   ]
 }
 
+//****CREATING APP
 const dumplingApp = {};
 dumplingApp.countryResults = [];
+//DECLARING GLOBAL VARIABLES
 $countries = $('.countries');
 $finalDumpling = $('.finalDumpling');
+$errorMessage = $('.errorMessage');
 
-// check if at least one box has been checked in each section before proceeding
+//****TO DETECT IF THERE ARE ANY MISSING CHECKBOXES
 dumplingApp.validateForm = function () {
-  // handling when to show error message
+  // when to show error message
   if ($('#fillings input').is(':checked')) {
     // to reset the hide if the error is corrected
-    $('.errorMessage').hide();
+    $errorMessage.hide();
     return;
   } else {
     dumplingApp.errorHandling();
   }
 }
-  
+
+//****TO HANDLE ERRORS
 dumplingApp.errorHandling = function() {
 
-    // shows error message and removes information from 
-    $('.errorMessage').show();
-    $('.resultContainer').hide();
-    $countries.empty();
-    $finalDumpling.empty();
-    $('.bottomButton').empty();
+  // shows error message and removes information from 
+  $errorMessage.show();
+  $('.resultContainer').hide();
+  $countries.empty();
+  $finalDumpling.empty();
+  $('.bottomButton').empty();
 }
 
-//***SUBMIT CHOICES FUNCTION */
+//****SUBMITTING CHOICES */
 dumplingApp.submitChoices = function() {
-  $countries = $('.countries');
-  $finalDumpling = $('.finalDumpling');
-  
+  //
   $('form').on('change', function () {
     $('.resultContainer').show();
+    // EMPTYING ALL RESULTS ON ANY CHANGE
     $countries.empty();
     $finalDumpling.empty();
     $('.bottomButton').empty();
@@ -122,7 +126,7 @@ dumplingApp.submitChoices = function() {
     // get the value of selected checkboxes in boiled || fried
     dumplingApp.dumplingType = $('input[type=radio]:checked').val();
 
-    // get value of meat || veggie or both and put in variable
+    // get value of meat || veggie or both and put in variables
     if ($('input[value=veg]:checked').val() && $('input[value=meat]:checked').val()) {
       dumplingApp.fillingType = "both";
     } else if ($('input[value=meat]:checked').val()) {
@@ -136,7 +140,7 @@ dumplingApp.submitChoices = function() {
     if (dumplingApp.fillingType === "both") {
       countryResults = chosenDumplingType;
     } else {
-    // otherwise, if user selects meat OR veg choice, this cycles through dumpling objects to only include appropriately filled dumplings in new countryResults array  
+    // if user selects meat OR veg choice, this cycles through the object for relevant filling choices  
       countryResults = chosenDumplingType.filter((dumpling) => {
         return dumpling.filling === dumplingApp.fillingType;
       })
@@ -146,11 +150,11 @@ dumplingApp.submitChoices = function() {
   });
 }  
 
-  //DISPLAYS THE FINAL DUMPLING AS A CHOICE FROM THE COUNTRY BUTTONS
+//****DISPLAYS THE COUNTRY BUTTONS 
 dumplingApp.displayCountries = function(filteredResults) {
   $('.results').show();
   // to scroll the results into view as it's populated
-  if (!$('.errorMessage').is(':visible')) {
+  if (!$errorMessage.is(':visible')) {
     dumplingApp.scrollBottom();
   };
   
@@ -158,9 +162,11 @@ dumplingApp.displayCountries = function(filteredResults) {
   $countries.empty();
   $finalDumpling.empty();
   $('.bottomButton').empty();
+
   // to remove the white background when contents are emptied
   $finalDumpling.removeClass('addBg')
-  
+
+  // adds title and fieldset for country radio buttons
   $countries.append(`
     <p>Choose dumpling origin <span>⬇ ⬇ ⬇</span></p>
     <form>
@@ -168,14 +174,15 @@ dumplingApp.displayCountries = function(filteredResults) {
     </form>
   `);
 
-  // going through filtered results array and appending each one to the div 
+  // goes through filtered results array and appends each one to the fieldset 
   filteredResults.forEach((result) => {
-    // tab index not needed as radio buttons cycle through with left and right arrows
+    // >>tab index not needed as radio buttons cycle through with left and right arrows<<
     $('.countriesFlex').append(`
         <input type="radio" id="${result.origin}" name="country" value="${result.origin}">
         <label for="${result.origin}" aria-label="click to display dumpling with origin of ${result.origin}" visibility="hidden"> ${result.origin}</label>
     `);
   });
+  // appends the template for the final dumpling result.
   $finalDumpling
 		.html(
 			`
@@ -200,7 +207,7 @@ dumplingApp.displayCountries = function(filteredResults) {
 //***when change occurs, the corresponding dumpling + recipe link will appear
 dumplingApp.displayFinal = function() {
 
-	// on change of countries radio button, display corresponding dumpling recipe
+	// on change of country radio button, display corresponding dumpling recipe
 	// radio buttons can be selected by tabbing into the first button and clicking left to right arrows, as per radio button navigation
 	$('[name=country]').on('change', function (e) {
 		e.preventDefault();
@@ -209,12 +216,13 @@ dumplingApp.displayFinal = function() {
 		const countrySelected = $(this).val();
 		countryResults.forEach((result) => {
 			if (result.origin === countrySelected) {
-        // $finalDumpling.empty();
         $('.recipe').empty();
         $('.bottomButton').empty();
+
+        //adding the recipe + "Start over?" button
         $('.finalIntro').text(`Here's your recipe! ⬇`);
         $('.recipe').html(`<a href="${result.recipe}" target="_blank">${result.name}</a>`);
-					
+        
           $('.resultContainer').append(`
           <div class="bottomButton">
               <p class="tryAgain">
@@ -230,10 +238,10 @@ dumplingApp.displayFinal = function() {
 	});
 };
   
-//***scrolling to bottom of page on click
+//***SCROLLING TO BOTTOM ON CLICK
 dumplingApp.scrollBottom = function() {
-	// const bottom = $(document).height() - $(window).height();
-	const bottom = $(document).height();
+	const bottom = $(document).height() - $(window).height();
+	// const bottom = $(document).height();
 	$('html, body').animate(
 		{
 			scrollTop: bottom,
@@ -242,17 +250,13 @@ dumplingApp.scrollBottom = function() {
 	);
 };
 
-//***ADDING CLASSES*/
-dumplingApp.addBling = function(className) {
-  $('header img').addClass(className);
-}
 
 //****INIT
 dumplingApp.init = function() {
 
   // TO ADD GLOW AFTER ANIMATE ROLL-IN
   $('header img').on('animationend webkitAnimationEnd', function() {
-    dumplingApp.addBling('glow');
+    $('header img').addClass('glow');
   })
 
   // SMOOTH ANIMATE SCROLLING - FROM VARIOUS W3 SCHOOLS + STACK OVERFLOW SOURCES  
@@ -272,9 +276,10 @@ dumplingApp.init = function() {
       });
     }
   });
+
+  // ON FORM SUBMIT ON PAGE LOAD
   $('form').on('submit', function(e) {
     e.preventDefault();
-  
     $countries.empty();
     $finalDumpling.empty();
     $('.bottomButton').empty();

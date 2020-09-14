@@ -1,9 +1,7 @@
-
 html {
     padding: 0;
     margin: 0;
     font-size: 62.5%;
-    // scroll-behavior: smooth;
 }
 
 .wrapper {
@@ -23,7 +21,7 @@ button,
 }
 
 h1 {
-    font-size: clamp(2.75rem, 3.5vw, 7rem);
+    font-size: clamp(2.75rem, 3.5vw, 6.5rem);
     padding-bottom: 15px;
 }
 
@@ -77,7 +75,6 @@ header {
     .headerText {
         display: flex;
         flex-direction: column;
-        flex-shrink: 1;
     }
     .glow {
         filter: drop-shadow(-5px 10px 10px $secondary);
@@ -124,8 +121,6 @@ a {
     }
 }
 
-
-
 .filter {
     display: flex;
     flex-direction: column;
@@ -145,6 +140,9 @@ a {
 .errorMessage {
     display: none;
     color: $accent;
+    p {
+        font-size: 1.5rem;
+    }
 }
 
 .results {
@@ -152,7 +150,6 @@ a {
     padding: 100px 0px;
 }
 
-// USE THIS CODE TO STYLIZE RESULTS SECTION AFTER
 .resultContainer {
     width: 100%;
     display: flex;
@@ -165,11 +162,11 @@ a {
 .countries {
     padding: 0px;
     margin-right: 40px;
+    width: calc(40% - 40px);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: calc(40% - 40px);
     text-align: center;
     p {
         font-size: clamp(2.0rem, 2vw, 2.6rem);
@@ -180,20 +177,18 @@ a {
     }
     .countriesFlex {
         display: flex;
-        flex-direction: row;
         flex-wrap: wrap;
         padding-top: 30px;
-        width: 100%;
     }
     label {
         font-size: clamp(1.6rem, 2vw, 2rem);
-        width: calc((100% - 50px) / 2);
+        width: calc((100% - 55px) / 2);
         margin: 10px 20px 10px 0px;
-        border-radius: 5px;
-        padding: 10px 20px;
         background-color: $secondary;
         color: $primary;
         text-align: center;
+        border-radius: 5px;
+        padding: 10px 20px;
     }
     input {
         opacity: 0;
@@ -214,14 +209,14 @@ a {
     min-height: 300px;
     a {
         font-size: clamp(3rem, 3vw, 4rem);
+        width: 100%;
+        padding: 0px;
+        border: 0px;
         text-shadow: 3px 3px $dark;
         text-decoration: none;
         background: linear-gradient(to top, $secondary 50%, white 50%);
-        padding: 0px;
-        width: 100%;
         display: block;
         word-break: break-word;
-        border: 0;
         &:focus {
             border: 3px solid $accent;
             outline: none;
@@ -273,20 +268,19 @@ a {
 
 .addBg {
     border: 3px solid $secondary;
+    color: $primary;
     background-color: $light;
     border-radius: 15px;
     padding: 15px 25px;
-    color: $primary;
 }
 
 footer {
-    display: flex;
     min-height: 40px;
     padding-bottom: 10px;
     background-color: $dark;
+    display: flex;
     align-items: center;
     margin: 0 auto;
-    padding: 0;
     div {
         display: flex;
         flex-wrap: wrap;

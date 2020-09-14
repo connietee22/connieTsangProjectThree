@@ -246,7 +246,7 @@ button,
 }
 
 h1 {
-  font-size: clamp(2.75rem, 3.5vw, 7rem);
+  font-size: clamp(2.75rem, 3.5vw, 6.5rem);
   padding-bottom: 15px;
 }
 
@@ -316,8 +316,6 @@ header .headerText {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -ms-flex-negative: 1;
-      flex-shrink: 1;
 }
 
 header .glow {
@@ -414,6 +412,10 @@ a:focus {
   color: #eb6f5d;
 }
 
+.errorMessage p {
+  font-size: 1.5rem;
+}
+
 .results {
   display: none;
   padding: 100px 0px;
@@ -438,6 +440,7 @@ a:focus {
 .countries {
   padding: 0px;
   margin-right: 40px;
+  width: calc(40% - 40px);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -451,7 +454,6 @@ a:focus {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  width: calc(40% - 40px);
   text-align: center;
 }
 
@@ -468,25 +470,20 @@ a:focus {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   padding-top: 30px;
-  width: 100%;
 }
 
 .countries label {
   font-size: clamp(1.6rem, 2vw, 2rem);
-  width: calc((100% - 50px) / 2);
+  width: calc((100% - 55px) / 2);
   margin: 10px 20px 10px 0px;
-  border-radius: 5px;
-  padding: 10px 20px;
   background-color: #f4e6b7;
   color: #a48c63;
   text-align: center;
+  border-radius: 5px;
+  padding: 10px 20px;
 }
 
 .countries input {
@@ -519,15 +516,15 @@ a:focus {
 
 .finalDumpling a {
   font-size: clamp(3rem, 3vw, 4rem);
+  width: 100%;
+  padding: 0px;
+  border: 0px;
   text-shadow: 3px 3px #333;
   text-decoration: none;
   background: -webkit-gradient(linear, left bottom, left top, color-stop(50%, #f4e6b7), color-stop(50%, white));
   background: linear-gradient(to top, #f4e6b7 50%, white 50%);
-  padding: 0px;
-  width: 100%;
   display: block;
   word-break: break-word;
-  border: 0;
 }
 
 .finalDumpling a:focus {
@@ -599,24 +596,23 @@ a:focus {
 
 .addBg {
   border: 3px solid #f4e6b7;
+  color: #a48c63;
   background-color: #fff;
   border-radius: 15px;
   padding: 15px 25px;
-  color: #a48c63;
 }
 
 footer {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
   min-height: 40px;
   padding-bottom: 10px;
   background-color: #333;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
   margin: 0 auto;
-  padding: 0;
 }
 
 footer div {
@@ -657,6 +653,10 @@ footer p {
   }
   .countries .countriesFlex label {
     width: 100%;
+    margin: 0 auto;
+  }
+  .finalDumpling a {
+    text-shadow: 2px 2px #333;
   }
 }
 
