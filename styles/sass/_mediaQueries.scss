@@ -14,14 +14,13 @@
             text-align: center;
             label {
                 width: calc((100% - 50px) / 2);
-                // width: 100%;
-                // margin: 0 auto;
                 margin: 10px auto;
             }
         }
     }
 
     .finalDumpling {
+        max-width: 720px;
         width: 100%;
         a {
             text-shadow: 2px 2px $dark;
@@ -55,9 +54,9 @@
         text-align: center;
     }
 
-    .countries {
-        padding-bottom: 40px;
-    }
+    // .countries {
+    //     // padding-bottom: 40px;
+    // }
 
     .imageResultContainer {
         flex-direction: column;

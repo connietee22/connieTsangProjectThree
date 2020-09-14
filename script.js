@@ -84,14 +84,14 @@ dumplingApp.countryResults = [];
 //DECLARING GLOBAL VARIABLES
 $countries = $('.countries');
 $finalDumpling = $('.finalDumpling');
-$errorMessage = $('.errorMessage');
+// $errorMessage = $('.errorMessage');
 
 //****TO DETECT IF THERE ARE ANY MISSING CHECKBOXES
 dumplingApp.validateForm = function () {
   // when to show error message
   if ($('#fillings input').is(':checked')) {
     // to reset the hide if the error is corrected
-    $errorMessage.hide();
+    $('.errorMessage').hide();
     return;
   } else {
     dumplingApp.errorHandling();
@@ -100,32 +100,33 @@ dumplingApp.validateForm = function () {
 
 //****TO HANDLE ERRORS
 dumplingApp.errorHandling = function() {
-
+  $('.errorMessage').show();
+  $('.resultsWrapper').hide();
   // shows error message and removes information from 
-  $errorMessage.show();
-  $('.resultContainer').hide();
   $countries.empty();
   $finalDumpling.empty();
   $('.bottomButton').empty();
+  $('.resultContainer').hide();
 }
 
 //****SUBMITTING CHOICES */
 dumplingApp.submitChoices = function() {
-  //
+
   $('form').on('change', function () {
-    $('.resultContainer').hide(); //switch from show
+    // $('.resultContainer').hide(); //switch from show // 703
+    $('.resultsWrapper').show();
     // EMPTYING ALL RESULTS ON ANY CHANGE
     $countries.empty();
     $finalDumpling.empty();
     $('.bottomButton').empty();
-    $('.finalDumpling').removeClass('addBg');
+    $finalDumpling.removeClass('addBg');
   });
 
   $('.dumplingSelection').on('submit', function(e) {
     e.preventDefault();
     // get the value of selected checkboxes in boiled || fried
     dumplingApp.dumplingType = $('input[type=radio]:checked').val();
-    $('.resultContainer').show(); //test
+    $('.resultContainer').show(); 
     // get value of meat || veggie or both and put in variables
     if ($('input[value=veg]:checked').val() && $('input[value=meat]:checked').val()) {
       dumplingApp.fillingType = "both";
@@ -154,8 +155,8 @@ dumplingApp.submitChoices = function() {
 dumplingApp.displayCountries = function(filteredResults) {
   $('.results').show();
   // to scroll the results into view as it's populated
-  if (!$errorMessage.is(':visible')) {
-    dumplingApp.scrollBottom();
+  if (!$('.errorMessage').is(':visible')) {
+		dumplingApp.scrollBottom();
   };
   
   // clearing containers for new searches
@@ -189,8 +190,7 @@ dumplingApp.displayCountries = function(filteredResults) {
           <div class="imageResultContainer">
             <img src="assets/dumplingVecteezyTwo.png" alt="anthropomorphized dumpling from Vecteezy.com"></>
             <div>
-              <p class="finalIntro">Make your choice...!
-              </p>
+              <p class="finalIntro ellipses">Waiting for your pick!</p>
               <p class="recipe">
                 
               </p>
@@ -225,18 +225,26 @@ dumplingApp.displayFinal = function() {
         $('.recipe').html(`<a href="${result.recipe}">${result.name}</a>`);
         
         // adding a start over button
-          $('.bottomButton').append(`
-              <p class="tryAgain">
-                <a href="#startJourney">start over?</a>
-              </p>
-              <button class="dessert">
-                room for dessert?
-              </button>
-          `);
+        $('.bottomButton').append(`
+            <p class="tryAgain">
+              <a href="#startJourney">start over?</a>
+            </p>
+            <button class="dessert">
+              room for dessert?
+            </button>
+        `);
       }
 		});
-	});
+  });
 };
+  
+  // ON DESSERT CLICK, pick a random number between 0 and the dessert array link
+  // post the recipe and result name of dessert
+//   $('.dessert').on('click', function(e) {
+
+//     const randomNumber = Math.ceil(Math.random())
+//   })
+// };
   
 //***SCROLLING TO BOTTOM ON CLICK
 dumplingApp.scrollBottom = function() {
@@ -290,6 +298,7 @@ dumplingApp.init = function() {
 
   // to submit choices
   dumplingApp.submitChoices();
+
 };
 
 

@@ -14,7 +14,8 @@ h1,
 p,
 a,
 button,
-[type=submit] {
+[type=submit],
+ellipses {
     font-family: 'McLaren', cursive;
     text-transform: uppercase;
     text-decoration-style: none;
@@ -121,6 +122,13 @@ a {
     }
 }
 
+[type=submit] {
+    &:active {
+        border: 3px solid $accent;
+        outline: none;
+    }
+}
+
 .filter {
     display: flex;
     flex-direction: column;
@@ -182,7 +190,7 @@ a {
         label {
             font-size: clamp(1.6rem, 2vw, 2rem);
             width: calc((100% - 55px) / 2);
-            margin: 10px 20px 10px 0px;
+            margin: 10px auto;
             background-color: $secondary;
             color: $primary;
             text-align: center;
@@ -225,7 +233,7 @@ a {
     .finalIntro {
         font-size: clamp(1.6rem, 2vw, 2rem);
         color: $dark;
-    }  
+    }
 }
 
 .bottomButton {
@@ -276,7 +284,6 @@ a {
 
 footer {
     min-height: 40px;
-    padding-bottom: 10px;
     background-color: $dark;
     display: flex;
     align-items: center;

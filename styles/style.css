@@ -238,7 +238,8 @@ h1,
 p,
 a,
 button,
-[type=submit] {
+[type=submit],
+ellipses {
   font-family: 'McLaren', cursive;
   text-transform: uppercase;
   -webkit-text-decoration-style: none;
@@ -377,6 +378,11 @@ a:focus {
   outline: none;
 }
 
+[type=submit]:active {
+  border: 3px solid #eb6f5d;
+  outline: none;
+}
+
 .filter {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -478,7 +484,7 @@ a:focus {
 .countries .countriesFlex label {
   font-size: clamp(1.6rem, 2vw, 2rem);
   width: calc((100% - 55px) / 2);
-  margin: 10px 20px 10px 0px;
+  margin: 10px auto;
   background-color: #f4e6b7;
   color: #a48c63;
   text-align: center;
@@ -604,7 +610,6 @@ a:focus {
 
 footer {
   min-height: 40px;
-  padding-bottom: 10px;
   background-color: #333;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -657,6 +662,7 @@ footer p {
     margin: 10px auto;
   }
   .finalDumpling {
+    max-width: 720px;
     width: 100%;
   }
   .finalDumpling a {
@@ -697,9 +703,6 @@ footer p {
   }
   .filter {
     text-align: center;
-  }
-  .countries {
-    padding-bottom: 40px;
   }
   .imageResultContainer {
     -webkit-box-orient: vertical;
