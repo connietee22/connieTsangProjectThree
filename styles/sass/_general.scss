@@ -177,7 +177,7 @@ a {
     width: calc(40% - 40px);
     text-align: center;
     p {
-        font-size: clamp(2.0rem, 2vw, 2.6rem);
+        font-size: clamp(2.0rem, 2.3vw, 2.6rem);
     }
     span {
         display: block;
@@ -186,7 +186,7 @@ a {
     .countriesFlex {
         display: flex;
         flex-wrap: wrap;
-        padding-top: 30px;
+        padding-top: 15px;
         label {
             font-size: clamp(1.6rem, 2vw, 2rem);
             width: calc((100% - 55px) / 2);

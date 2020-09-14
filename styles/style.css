@@ -464,7 +464,7 @@ a:focus {
 }
 
 .countries p {
-  font-size: clamp(2rem, 2vw, 2.6rem);
+  font-size: clamp(2rem, 2.3vw, 2.6rem);
 }
 
 .countries span {
@@ -478,7 +478,7 @@ a:focus {
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  padding-top: 30px;
+  padding-top: 15px;
 }
 
 .countries .countriesFlex label {
