@@ -222,7 +222,7 @@ dumplingApp.displayFinal = function() {
 
         //adding the recipe + "Start over?" button
         $('.finalIntro').text(`Here's your recipe! ⬇`);
-        $('.recipe').html(`<a href="${result.recipe}" target="_blank">${result.name}</a>`);
+        $('.recipe').html(`<a href="${result.recipe}">${result.name}</a>`);
         
         // adding a start over button
           $('.bottomButton').append(`

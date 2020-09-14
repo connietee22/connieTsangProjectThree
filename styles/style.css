@@ -438,9 +438,6 @@ a:focus {
 }
 
 .countries {
-  padding: 0px;
-  margin-right: 40px;
-  width: calc(40% - 40px);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -454,6 +451,9 @@ a:focus {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  padding: 0px;
+  margin-right: 40px;
+  width: calc(40% - 40px);
   text-align: center;
 }
 
@@ -475,7 +475,7 @@ a:focus {
   padding-top: 30px;
 }
 
-.countries label {
+.countries .countriesFlex label {
   font-size: clamp(1.6rem, 2vw, 2rem);
   width: calc((100% - 55px) / 2);
   margin: 10px 20px 10px 0px;
