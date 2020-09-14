@@ -101,7 +101,7 @@ dumplingApp.errorHandling = function() {
     $('.resultContainer').hide();
     $countries.empty();
     $finalDumpling.empty();
-    $('.tryAgain').empty();
+    $('.bottomButton').empty();
 }
 
 //***SUBMIT CHOICES FUNCTION */
@@ -113,7 +113,7 @@ dumplingApp.submitChoices = function() {
     $('.resultContainer').show();
     $countries.empty();
     $finalDumpling.empty();
-    $('.tryAgain').empty();
+    $('.bottomButton').empty();
     $('.finalDumpling').removeClass('addBg');
   });
 
@@ -158,12 +158,13 @@ dumplingApp.displayCountries = function(filteredResults) {
   // clearing containers for new searches
   $countries.empty();
   $finalDumpling.empty();
-  $('.tryAgain').empty();
+  $('.bottomButton').empty();
   // to remove the white background when contents are emptied
   $finalDumpling.removeClass('addBg')
   
   $countries.append(`
-    <p>Choose your dumpling's origin</p>
+    <p>Choose dumpling origin</p>
+    <p>⬇ ⬇ ⬇</p>
     <form>
       <fieldset class="countriesFlex"></fieldset>
     </form>
@@ -177,6 +178,7 @@ dumplingApp.displayCountries = function(filteredResults) {
         <label for="${result.origin}" aria-label="click to display dumpling with origin of ${result.origin}" visibility="hidden"> ${result.origin}</label>
     `);
   });
+
     dumplingApp.displayFinal();
 }
 
@@ -195,18 +197,18 @@ dumplingApp.displayFinal = function() {
 		countryResults.forEach((result) => {
 			if (result.origin === countrySelected) {
         $finalDumpling.empty();
-        $('.tryAgain').empty();
+        $('.bottomButton').empty();
+
 				$finalDumpling
 					.html(
 						`
-          
           <div class="imageResultContainer">
             <img src="assets/dumplingVecteezyTwo.png" alt="anthropomorphized dumpling from Vecteezy.com"></>
             <div>
               <p>
-              <span class="finalIntro">Get your recipe:</span>
+              <span class="finalIntro">Get your recipe</span>
               </p>
-              <p>
+              <p class="recipe">
                 <a href="${result.recipe}" target="_blank">${result.name}</a>
               </p>
             </div>
@@ -214,23 +216,27 @@ dumplingApp.displayFinal = function() {
         `
 					)
 					.addClass('addBg')
-          .addClass('fadeIn');
+					
           $('.resultContainer').append(`
-          <div class="tryAgain">
-              <p>
+          <div class="bottomButton">
+              <p class="tryAgain">
                 <a href="#startJourney">start over?</a>
               </p>
-          </div>`);
+              <button class="dessert">
+                room for dessert?
+              </button>
+          </div>
+          `);
       }
-      dumplingApp.scrollBottom();
+      // dumplingApp.scrollBottom();
 		});
 	});
 };
   
 //***scrolling to bottom of page on click
 dumplingApp.scrollBottom = function() {
-	const bottom = $(document).height() - $(window).height();
-	// const bottom = $(document).height();
+	// const bottom = $(document).height() - $(window).height();
+	const bottom = $(document).height();
 	console.log($(document).height());
 	$('html, body').animate(
 		{
@@ -275,7 +281,7 @@ dumplingApp.init = function() {
   
     $countries.empty();
     $finalDumpling.empty();
-    $('.tryAgain').empty();
+    $('.bottomButton').empty();
 
     // to check for errors before proceeding
     dumplingApp.validateForm();

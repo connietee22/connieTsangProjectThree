@@ -237,6 +237,7 @@ html {
 h1,
 p,
 a,
+button,
 [type=submit] {
   font-family: 'McLaren', cursive;
   text-transform: uppercase;
@@ -348,6 +349,7 @@ a:hover {
 
 input,
 label,
+button,
 .nextButtons,
 [type=submit],
 [type=radio] + label,
@@ -357,6 +359,7 @@ a {
 
 input:hover,
 label:hover,
+button:hover,
 .nextButtons:hover,
 [type=submit]:hover,
 [type=radio] + label:hover,
@@ -367,6 +370,7 @@ a:hover {
 
 input:focus,
 label:focus,
+button:focus,
 .nextButtons:focus,
 [type=submit]:focus,
 [type=radio] + label:focus,
@@ -415,6 +419,20 @@ a:focus {
   padding: 100px 0px;
 }
 
+.resultContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
 .countries {
   padding: 0px 0px 75px;
   display: -webkit-box;
@@ -424,12 +442,12 @@ a:focus {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  max-width: 420px;
+}
+
+.countries p {
+  font-size: clamp(2rem, 2vw, 2.6rem);
+  text-align: left;
 }
 
 .countries .countriesFlex {
@@ -442,17 +460,16 @@ a:focus {
           flex-direction: row;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
   padding-top: 30px;
-  max-width: 600px;
+  width: 100%;
   margin: 0 auto;
 }
 
 .countries label {
-  padding: 15px 30px;
-  margin: 10px;
+  font-size: clamp(1.6rem, 2vw, 2rem);
+  width: 175px;
+  padding: 5px 10px;
+  margin: 10px 10px 10px 0px;
   border-radius: 5px;
   padding: 15px 30px;
   background-color: #f4e6b7;
@@ -462,6 +479,7 @@ a:focus {
 
 .countries input {
   opacity: 0;
+  width: 0px;
 }
 
 .countries input:checked + label,
@@ -483,14 +501,12 @@ a:focus {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  max-width: 700px;
-  margin: 0 auto;
-  -webkit-transition-duration: fade-in 2s;
-          transition-duration: fade-in 2s;
+  width: 600px;
+  height: 400px;
 }
 
 .finalDumpling a {
-  font-size: clamp(4rem, 5vw, 5rem);
+  font-size: clamp(3rem, 3vw, 4rem);
   text-shadow: 3px 3px #333;
   text-decoration: none;
   background: -webkit-gradient(linear, left bottom, left top, color-stop(50%, #f4e6b7), color-stop(50%, white));
@@ -500,8 +516,6 @@ a:focus {
   display: block;
   word-break: break-word;
   border: 0;
-  -webkit-animation: fadeIn ease-in 2s;
-          animation: fadeIn ease-in 2s;
 }
 
 .finalDumpling a:focus {
@@ -510,43 +524,47 @@ a:focus {
 }
 
 .finalDumpling .finalIntro {
-  font-size: clamp(1.6rem, 2vw, 2.5rem);
+  font-size: clamp(1.6rem, 2vw, 2rem);
   color: #333;
 }
 
-@-webkit-keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
+.bottomButton {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 50px;
 }
 
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
-.tryAgain p a {
+.bottomButton button,
+.bottomButton a {
   font-size: clamp(1.5rem, 1.5vw, 1.5rem);
-  color: #333;
   text-shadow: none;
   text-decoration: none;
   -webkit-box-shadow: 3px 3px 0px #f4e6b7;
           box-shadow: 3px 3px 0px #f4e6b7;
   border-radius: 5px;
   padding: 5px 10px;
-  margin-top: 40px;
+  margin: 20px;
+  background: #fff;
 }
 
-.tryAgain p:hover {
+.bottomButton p {
+  font-size: clamp(1.5rem, 1.5vw, 1.5rem);
+}
+
+.bottomButton p:hover {
   -webkit-transform: scale(1.1);
           transform: scale(1.1);
+}
+
+.bottomButton p a {
+  color: #333;
 }
 
 .imageResultContainer {
@@ -651,5 +669,14 @@ footer p {
   }
   .imageResultContainer img {
     margin: 20px 0px 20px;
+  }
+  .finalDumpling {
+    margin-bottom: 30px;
+  }
+  .bottomButton {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
   }
 }
