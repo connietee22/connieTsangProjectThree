@@ -113,12 +113,12 @@ dumplingApp.errorHandling = function() {
 dumplingApp.submitChoices = function() {
 
   $('form').on('change', function () {
-    // $('.resultContainer').hide(); //switch from show // 703
+    $('.resultContainer').hide();
     $('.resultsWrapper').show();
     // EMPTYING ALL RESULTS ON ANY CHANGE
     $countries.empty();
     $finalDumpling.empty();
-    $('.bottomButton').empty();
+    $bottomButton.empty();
     $finalDumpling.removeClass('addBg');
   });
 
