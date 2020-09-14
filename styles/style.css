@@ -645,6 +645,7 @@ footer p {
   }
   .countries {
     margin: 0px 0px 30px;
+    width: 100%;
   }
   .countries .countriesFlex {
     padding-top: 0px;
@@ -652,8 +653,11 @@ footer p {
     text-align: center;
   }
   .countries .countriesFlex label {
+    width: calc((100% - 50px) / 2);
+    margin: 10px auto;
+  }
+  .finalDumpling {
     width: 100%;
-    margin: 0 auto;
   }
   .finalDumpling a {
     text-shadow: 2px 2px #333;

@@ -7,19 +7,22 @@
 
     .countries {
         margin: 0px 0px 30px;
+        width: 100%;
         .countriesFlex {
-            // flex-direction: column;
             padding-top: 0px;
             width: 100%;
             text-align: center;
             label {
-                width: 100%;
-                margin: 0 auto;
+                width: calc((100% - 50px) / 2);
+                // width: 100%;
+                // margin: 0 auto;
+                margin: 10px auto;
             }
         }
     }
 
     .finalDumpling {
+        width: 100%;
         a {
             text-shadow: 2px 2px $dark;
         }
@@ -64,7 +67,6 @@
     }
     .finalDumpling {
         margin-bottom: 30px;
-        
     }
 
     .bottomButton {
