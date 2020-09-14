@@ -113,7 +113,7 @@ dumplingApp.errorHandling = function() {
 dumplingApp.submitChoices = function() {
   //
   $('form').on('change', function () {
-    $('.resultContainer').show();
+    $('.resultContainer').hide(); //switch from show
     // EMPTYING ALL RESULTS ON ANY CHANGE
     $countries.empty();
     $finalDumpling.empty();
@@ -125,7 +125,7 @@ dumplingApp.submitChoices = function() {
     e.preventDefault();
     // get the value of selected checkboxes in boiled || fried
     dumplingApp.dumplingType = $('input[type=radio]:checked').val();
-
+    $('.resultContainer').show(); //test
     // get value of meat || veggie or both and put in variables
     if ($('input[value=veg]:checked').val() && $('input[value=meat]:checked').val()) {
       dumplingApp.fillingType = "both";
@@ -198,7 +198,8 @@ dumplingApp.displayCountries = function(filteredResults) {
           </div>
         `
 		)
-		.addClass('addBg');
+    .addClass('addBg');
+      
     dumplingApp.displayFinal();
 }
 
@@ -223,15 +224,14 @@ dumplingApp.displayFinal = function() {
         $('.finalIntro').text(`Here's your recipe! ⬇`);
         $('.recipe').html(`<a href="${result.recipe}" target="_blank">${result.name}</a>`);
         
-          $('.resultContainer').append(`
-          <div class="bottomButton">
+        // adding a start over button
+          $('.bottomButton').append(`
               <p class="tryAgain">
                 <a href="#startJourney">start over?</a>
               </p>
               <button class="dessert">
                 room for dessert?
               </button>
-          </div>
           `);
       }
 		});

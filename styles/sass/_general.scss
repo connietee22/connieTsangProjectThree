@@ -153,20 +153,20 @@ a {
 .resultContainer {
     width: 100%;
     display: flex;
-    flex-wrap: wrap;
+    // flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     margin: 0 auto;
 }
 
 .countries {
-    padding: 0px;
-    margin-right: 40px;
-    width: calc(40% - 40px);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    padding: 0px;
+    margin-right: 40px;
+    width: calc(40% - 40px);
     text-align: center;
     p {
         font-size: clamp(2.0rem, 2vw, 2.6rem);
@@ -179,16 +179,16 @@ a {
         display: flex;
         flex-wrap: wrap;
         padding-top: 30px;
-    }
-    label {
-        font-size: clamp(1.6rem, 2vw, 2rem);
-        width: calc((100% - 55px) / 2);
-        margin: 10px 20px 10px 0px;
-        background-color: $secondary;
-        color: $primary;
-        text-align: center;
-        border-radius: 5px;
-        padding: 10px 20px;
+        label {
+            font-size: clamp(1.6rem, 2vw, 2rem);
+            width: calc((100% - 55px) / 2);
+            margin: 10px 20px 10px 0px;
+            background-color: $secondary;
+            color: $primary;
+            text-align: center;
+            border-radius: 5px;
+            padding: 10px 20px;
+        }
     }
     input {
         opacity: 0;
