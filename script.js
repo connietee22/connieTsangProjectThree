@@ -163,8 +163,7 @@ dumplingApp.displayCountries = function(filteredResults) {
   $finalDumpling.removeClass('addBg')
   
   $countries.append(`
-    <p>Choose dumpling origin</p>
-    <p>⬇ ⬇ ⬇</p>
+    <p>Choose dumpling origin <span>⬇ ⬇ ⬇</span></p>
     <form>
       <fieldset class="countriesFlex"></fieldset>
     </form>
@@ -178,7 +177,22 @@ dumplingApp.displayCountries = function(filteredResults) {
         <label for="${result.origin}" aria-label="click to display dumpling with origin of ${result.origin}" visibility="hidden"> ${result.origin}</label>
     `);
   });
-
+  $finalDumpling
+		.html(
+			`
+          <div class="imageResultContainer">
+            <img src="assets/dumplingVecteezyTwo.png" alt="anthropomorphized dumpling from Vecteezy.com"></>
+            <div>
+              <p class="finalIntro">Make your choice...!
+              </p>
+              <p class="recipe">
+                
+              </p>
+            </div>
+          </div>
+        `
+		)
+		.addClass('addBg');
     dumplingApp.displayFinal();
 }
 
@@ -186,7 +200,7 @@ dumplingApp.displayCountries = function(filteredResults) {
 //***DISPLAY FINAL DUMPLING
 //***when change occurs, the corresponding dumpling + recipe link will appear
 dumplingApp.displayFinal = function() {
-	//***event listener on new fieldset
+
 	// on change of countries radio button, display corresponding dumpling recipe
 	// radio buttons can be selected by tabbing into the first button and clicking left to right arrows, as per radio button navigation
 	$('[name=country]').on('change', function (e) {
@@ -196,26 +210,30 @@ dumplingApp.displayFinal = function() {
 		const countrySelected = $(this).val();
 		countryResults.forEach((result) => {
 			if (result.origin === countrySelected) {
-        $finalDumpling.empty();
+        // $finalDumpling.empty();
+        $('.recipe').empty();
         $('.bottomButton').empty();
+        $('.finalIntro').text(`Here's your recipe! ⬇`);
+        $('.recipe').html(`<a href="${result.recipe}" target="_blank">${result.name}</a>`);
 
-				$finalDumpling
-					.html(
-						`
-          <div class="imageResultContainer">
-            <img src="assets/dumplingVecteezyTwo.png" alt="anthropomorphized dumpling from Vecteezy.com"></>
-            <div>
-              <p>
-              <span class="finalIntro">Get your recipe</span>
-              </p>
-              <p class="recipe">
-                <a href="${result.recipe}" target="_blank">${result.name}</a>
-              </p>
-            </div>
-          </div>
-        `
-					)
-					.addClass('addBg')
+        // TEMPORARILY MOVING ABOVE TO COUNTRY BUTTON CREATION
+				// $finalDumpling
+				// 	.html(
+				// 		`
+        //   <div class="imageResultContainer">
+        //     <img src="assets/dumplingVecteezyTwo.png" alt="anthropomorphized dumpling from Vecteezy.com"></>
+        //     <div>
+        //       <p>
+        //       <span class="finalIntro">Get your recipe</span>
+        //       </p>
+        //       <p class="recipe">
+        //         <a href="${result.recipe}" target="_blank">${result.name}</a>
+        //       </p>
+        //     </div>
+        //   </div>
+        // `
+				// 	)
+				// 	.addClass('addBg')
 					
           $('.resultContainer').append(`
           <div class="bottomButton">

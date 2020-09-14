@@ -393,7 +393,7 @@ a:focus {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  height: 70vh;
+  height: 60vh;
 }
 
 .filter div {
@@ -425,16 +425,17 @@ a:focus {
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  margin: 0 auto;
 }
 
 .countries {
-  padding: 0px 0px 75px;
+  padding: 0px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -442,12 +443,24 @@ a:focus {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   max-width: 420px;
+  text-align: center;
 }
 
 .countries p {
   font-size: clamp(2rem, 2vw, 2.6rem);
   text-align: left;
+}
+
+.countries span {
+  display: block;
+  text-align: center;
 }
 
 .countries .countriesFlex {
@@ -462,16 +475,14 @@ a:focus {
       flex-wrap: wrap;
   padding-top: 30px;
   width: 100%;
-  margin: 0 auto;
 }
 
 .countries label {
   font-size: clamp(1.6rem, 2vw, 2rem);
-  width: 175px;
-  padding: 5px 10px;
-  margin: 10px 10px 10px 0px;
+  width: calc((100% - 60px) / 2);
+  margin: 10px 20px 10px 0px;
   border-radius: 5px;
-  padding: 15px 30px;
+  padding: 10px 20px;
   background-color: #f4e6b7;
   color: #a48c63;
   text-align: center;
@@ -491,10 +502,10 @@ a:focus {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
+  -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+      -ms-flex-direction: row;
+          flex-direction: row;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -582,7 +593,7 @@ a:focus {
 
 .imageResultContainer img {
   width: 200px;
-  margin: 30px 30px 30px 0px;
+  margin-right: 40px;
 }
 
 .addBg {
@@ -660,6 +671,9 @@ footer p {
   }
   .filter {
     text-align: center;
+  }
+  .countries {
+    padding-bottom: 40px;
   }
   .imageResultContainer {
     -webkit-box-orient: vertical;
