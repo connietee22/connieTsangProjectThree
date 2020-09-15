@@ -254,10 +254,11 @@ dumplingApp.displayFinal = function() {
     `);
   });
 
+  // adding .delegate to body as the event listener does not work on appended elements - from article on codewall.co.uk 
   $('body').delegate('.dessert', 'click', function() {
     const dessertChoice = dumplingApp.randomDessert(dumplings.dessert);
     dumplingApp.displayName('dessert', dessertChoice)
-})
+  })
 };
   
 
