@@ -478,18 +478,17 @@ a:focus {
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  padding-top: 15px;
 }
 
 .countries .countriesFlex label {
   font-size: clamp(1.6rem, 2vw, 2rem);
   width: calc((100% - 55px) / 2);
-  margin: 10px auto;
+  margin: 8px auto;
   background-color: #f4e6b7;
   color: #a48c63;
   text-align: center;
   border-radius: 5px;
-  padding: 10px 20px;
+  padding: 5px 20px;
 }
 
 .countries input {

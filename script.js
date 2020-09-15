@@ -81,6 +81,7 @@ const dumplings = {
 //****CREATING APP
 const dumplingApp = {};
 dumplingApp.countryResults = [];
+
 //DECLARING GLOBAL VARIABLES
 $countries = $('.countries');
 $finalDumpling = $('.finalDumpling');
@@ -290,9 +291,6 @@ dumplingApp.init = function() {
     e.preventDefault();
     // to clear results
     dumplingApp.emptyResults();
-    // $countries.empty();
-    // $finalDumpling.empty();
-    // $bottomButton.empty();
 
     // to check for errors before proceeding
     dumplingApp.validateForm();
@@ -300,7 +298,6 @@ dumplingApp.init = function() {
 
   // to submit choices
   dumplingApp.submitChoices();
-
 };
 
 

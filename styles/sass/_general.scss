@@ -186,16 +186,15 @@ a {
     .countriesFlex {
         display: flex;
         flex-wrap: wrap;
-        padding-top: 15px;
         label {
             font-size: clamp(1.6rem, 2vw, 2rem);
             width: calc((100% - 55px) / 2);
-            margin: 10px auto;
+            margin: 8px auto;
             background-color: $secondary;
             color: $primary;
             text-align: center;
             border-radius: 5px;
-            padding: 10px 20px;
+            padding: 5px 20px;
         }
     }
     input {
