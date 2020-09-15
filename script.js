@@ -101,16 +101,22 @@ dumplingApp.validateForm = function () {
   }
 }
 
+//***TO EMPTY CONTAINERS ON FORM CHANGES */
+dumplingApp.emptyResults = function() {
+  $countries.empty();
+  $finalDumpling.empty();
+  $bottomButton.empty();
+}
+
 //****TO HANDLE ERRORS
 dumplingApp.errorHandling = function() {
   $errorMessage.show();
   $resultWrapper.hide();
-  // shows error message and removes information from 
-  $countries.empty();
-  $finalDumpling.empty();
-  $bottomButton.empty();
+  // shows error message and removes information from results
+  dumplingApp.emptyResults();
   $resultContainer.hide();
 }
+
 
 //****SUBMITTING CHOICES */
 dumplingApp.submitChoices = function() {
@@ -119,9 +125,7 @@ dumplingApp.submitChoices = function() {
     $resultContainer.hide();
     $resultWrapper.show();
     // EMPTYING ALL RESULTS ON ANY CHANGE
-    $countries.empty();
-    $finalDumpling.empty();
-    $bottomButton.empty();
+    dumplingApp.emptyResults();
     $finalDumpling.removeClass('addBg');
   });
 
@@ -152,7 +156,7 @@ dumplingApp.submitChoices = function() {
     // displays countries of all relevant dumplings
     dumplingApp.displayCountries(countryResults)
   });
-}  
+}
 
 //****DISPLAYS THE COUNTRY BUTTONS 
 dumplingApp.displayCountries = function(filteredResults) {
@@ -163,9 +167,8 @@ dumplingApp.displayCountries = function(filteredResults) {
   };
   
   // clearing containers for new searches
-  $countries.empty();
-  $finalDumpling.empty();
-  $bottomButton.empty();
+  dumplingApp.emptyResults();
+
   // to remove the white background when contents are emptied
   $finalDumpling.removeClass('addBg')
 
@@ -201,11 +204,9 @@ dumplingApp.displayCountries = function(filteredResults) {
         `
 		)
     .addClass('addBg');
-      
     dumplingApp.displayFinal();
 }
 
-  
 //***DISPLAY FINAL DUMPLING
 //***when change occurs, the corresponding dumpling + recipe link will appear
 dumplingApp.displayFinal = function() {
@@ -220,7 +221,6 @@ dumplingApp.displayFinal = function() {
 		countryResults.forEach((result) => {
 			if (result.origin === countrySelected) {
 				$('.recipe').empty();
-				// $bottomButton.empty();
 
 				//adding the recipe + "Start over?" button
 				$('.finalIntro').text(`Here's your recipe! ⬇`);
@@ -288,9 +288,11 @@ dumplingApp.init = function() {
   // ON FORM SUBMIT ON PAGE LOAD
   $('form').on('submit', function(e) {
     e.preventDefault();
-    $countries.empty();
-    $finalDumpling.empty();
-    $('.bottomButton').empty();
+    // to clear results
+    dumplingApp.emptyResults();
+    // $countries.empty();
+    // $finalDumpling.empty();
+    // $bottomButton.empty();
 
     // to check for errors before proceeding
     dumplingApp.validateForm();
