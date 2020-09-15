@@ -140,7 +140,7 @@ dumplingApp.errorHandling = function() {
   $resultContainer.hide();
 }
 
-//****SUBMITTING CHOICES */
+//****SUBMITTING CHOICES FROM FORM */
 dumplingApp.submitChoices = function() {
 
   $('form').on('change', function () {
@@ -227,8 +227,8 @@ dumplingApp.displayCountries = function(filteredResults) {
     dumplingApp.displayFinal();
 }
 
-//***DISPLAY FINAL DUMPLING
-//***when change occurs, the corresponding dumpling + recipe link will appear
+
+//***SELECTING COUNTRY FOR FINAL DUMPLING
 dumplingApp.displayFinal = function() {
 
 	// on change of country radio button, display corresponding dumpling recipe
@@ -254,6 +254,7 @@ dumplingApp.displayFinal = function() {
     `);
   });
 
+  //***TO DISPLAY RANDOM DESSERT DUMPLING */
   // adding .delegate to body as the event listener does not work on appended elements - from article on codewall.co.uk 
   $('body').delegate('.dessert', 'click', function() {
     const dessertChoice = dumplingApp.randomDessert(dumplings.dessert);
@@ -262,6 +263,7 @@ dumplingApp.displayFinal = function() {
 };
   
 
+//****TO DISPLAY TYPE OF MEAL AND NAME OF DUMPLING */
 dumplingApp.displayName = function(typeOfMeal, arrayResult) {
   $('.recipe').empty();
 
