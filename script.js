@@ -112,6 +112,7 @@ $bottomButton = $('.bottomButton');
 $resultContainer = $('.resultContainer');
 $resultWrapper = $('.resultsWrapper');
 
+
 //****TO DETECT IF THERE ARE ANY MISSING CHECKBOXES
 dumplingApp.validateForm = function () {
   // when to show error message
@@ -124,12 +125,14 @@ dumplingApp.validateForm = function () {
   }
 }
 
+
 //***TO EMPTY CONTAINERS ON FORM CHANGES */
 dumplingApp.emptyResults = function() {
   $countries.empty();
   $finalDumpling.empty();
   $bottomButton.empty();
 }
+
 
 //****TO HANDLE ERRORS
 dumplingApp.errorHandling = function() {
@@ -139,6 +142,7 @@ dumplingApp.errorHandling = function() {
   dumplingApp.emptyResults();
   $resultContainer.hide();
 }
+
 
 //****SUBMITTING CHOICES FROM FORM */
 dumplingApp.submitChoices = function() {
@@ -179,6 +183,7 @@ dumplingApp.submitChoices = function() {
     dumplingApp.displayCountries(countryResults)
   });
 }
+
 
 //****DISPLAYS THE COUNTRY BUTTONS 
 dumplingApp.displayCountries = function(filteredResults) {
@@ -261,7 +266,7 @@ dumplingApp.displayFinal = function() {
     dumplingApp.displayName('dessert', dessertChoice)
   })
 };
-  
+
 
 //****TO DISPLAY TYPE OF MEAL AND NAME OF DUMPLING */
 dumplingApp.displayName = function(typeOfMeal, arrayResult) {
@@ -273,7 +278,6 @@ dumplingApp.displayName = function(typeOfMeal, arrayResult) {
 }
 
 
-
 // ON DESSERT CLICK, pick a random number between 0 and the dessert array link
 // post the recipe and result name of dessert
 dumplingApp.randomDessert = function(arrayName) {
@@ -281,7 +285,7 @@ dumplingApp.randomDessert = function(arrayName) {
   return arrayName[index];
 }
 
-  
+
 //***SCROLLING TO BOTTOM ON CLICK
 dumplingApp.scrollBottom = function() {
 	const bottom = $(document).height() - $(window).height();
