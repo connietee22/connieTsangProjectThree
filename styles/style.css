@@ -400,7 +400,7 @@ a:focus {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  height: 40vh;
+  height: 50vh;
 }
 
 .filter div {
