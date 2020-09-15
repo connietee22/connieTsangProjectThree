@@ -1,82 +1,104 @@
 //DATA OBJECTS FOR DUMPLINGS -- BOILED + FRIED
 const dumplings = {
-  boiled: [
-    {
-      name: "manti",
-      origin: "Turkey",
-      filling: "meat",
-      recipe: "https://www.panningtheglobe.com/turkish-manti/"
-    },
-    {
-      name: "kartoffel knödel",
-      origin: "Germany",
-      filling: "veg",
-      recipe: "http://www.bavariankitchen.com/sides/knoedel.aspx"
-    },
-    {
-      name: "har gow",
-      origin: "China",
-      filling: "meat",
-      recipe: "https://thewoksoflife.com/har-gow/"
-    },
-    {
-      name: "momos",
-      origin: "Tibet",
-      filling: "veg",
-      recipe: "https://www.yowangdu.com/tibetan-food/momos.html"
-    },
-    {
-      name: "kroppkakor",
-      origin: "Sweden",
-      filling: "meat",
-      recipe: "https://www.marthastewart.com/1142474/kroppkakor"
-    },
-    {
-      name: "fufu",
-      origin: "Ghana",
-      filling: "veg",
-      recipe: "https://www.cdkitchen.com/recipes/recs/262/Fufu_Ghana6978.shtml"
-    }
-  ], 
-  fried: [
-    {
-      name: "coxinhas",
-      origin: "Brazil",
-      filling: "meat",
-      recipe: "https://tasty.co/recipe/brazilian-chicken-croquettes-coxinha"
-    },
-    {
-      name: "rissóis",
-      origin: "Portugal",
-      filling: "meat",
-      recipe: "https://www.196flavors.com/portugal-rissois-de-camarao/"
-    },
-    {
-      name: "gyoza",
-      origin: "Japan",
-      filling: "meat",
-      recipe: "https://www.chopstickchronicles.com/japanese-gyoza/"
-    },
-    {
-      name: "knish",
-      origin: "Jewish",
-      filling: "veg",
-      recipe: "https://www.allrecipes.com/recipe/212834/sarahs-knish/"
-    },
-    {
-      name: "mandu",
-      origin: "korea",
-      filling: "veg",
-      recipe: "https://kimchimari.com/vegetarian-dumplings-hobak-pyeonsu/"
-    },
-    {
-      name: "empanada",
-      origin: "ecuador",
-      filling: "veg",
-      recipe: "https://www.laylita.com/recipes/mushroom-cheese-empanadas/"
-    }
-  ]
-}
+	boiled: [
+		{
+			name: 'manti',
+			origin: 'Turkey',
+			filling: 'meat',
+			recipe: 'https://www.panningtheglobe.com/turkish-manti/',
+		},
+		{
+			name: 'kartoffel knödel',
+			origin: 'Germany',
+			filling: 'veg',
+			recipe: 'http://www.bavariankitchen.com/sides/knoedel.aspx',
+		},
+		{
+			name: 'har gow',
+			origin: 'China',
+			filling: 'meat',
+			recipe: 'https://thewoksoflife.com/har-gow/',
+		},
+		{
+			name: 'momos',
+			origin: 'Tibet',
+			filling: 'veg',
+			recipe: 'https://www.yowangdu.com/tibetan-food/momos.html',
+		},
+		{
+			name: 'kroppkakor',
+			origin: 'Sweden',
+			filling: 'meat',
+			recipe: 'https://www.marthastewart.com/1142474/kroppkakor',
+		},
+		{
+			name: 'fufu',
+			origin: 'Ghana',
+			filling: 'veg',
+			recipe: 'https://www.cdkitchen.com/recipes/recs/262/Fufu_Ghana6978.shtml',
+		},
+	],
+	fried: [
+		{
+			name: 'coxinhas',
+			origin: 'Brazil',
+			filling: 'meat',
+			recipe: 'https://tasty.co/recipe/brazilian-chicken-croquettes-coxinha',
+		},
+		{
+			name: 'rissóis',
+			origin: 'Portugal',
+			filling: 'meat',
+			recipe: 'https://www.196flavors.com/portugal-rissois-de-camarao/',
+		},
+		{
+			name: 'gyoza',
+			origin: 'Japan',
+			filling: 'meat',
+			recipe: 'https://www.chopstickchronicles.com/japanese-gyoza/',
+		},
+		{
+			name: 'knish',
+			origin: 'Jewish',
+			filling: 'veg',
+			recipe: 'https://www.allrecipes.com/recipe/212834/sarahs-knish/',
+		},
+		{
+			name: 'mandu',
+			origin: 'Korea',
+			filling: 'veg',
+			recipe: 'https://kimchimari.com/vegetarian-dumplings-hobak-pyeonsu/',
+		},
+		{
+			name: 'empanada',
+			origin: 'Ecuador',
+			filling: 'veg',
+			recipe: 'https://www.laylita.com/recipes/mushroom-cheese-empanadas/',
+		},
+	],
+	dessert: [
+		{
+			name: 'modak',
+			origin: 'India',
+			recipe: 'https://www.vegrecipesofindia.com/modak-recipe-ukadiche-modak-recipe/',
+		},
+		{
+			name: 'svestkove knedlíky',
+			origin: 'Czech',
+			recipe: 'https://www.food.com/recipe/svestkove-knedliky-plum-dumplings-14715',
+		},
+		{
+			name: 'souskluitjies',
+			origin: 'South Africa',
+			recipe: 'https://www.thesouthafrican.com/food/recipes/sweet-dumplings-dessert-recipe/',
+		},
+		{
+			name: 'blueberry pierogies',
+			origin: 'Poland',
+			recipe: 'https://www.thespruceeats.com/blueberry-pierogi-with-nalesniki-filling-recipe-1136830',
+		},
+	],
+};
 
 //****CREATING APP
 const dumplingApp = {};
@@ -117,7 +139,6 @@ dumplingApp.errorHandling = function() {
   dumplingApp.emptyResults();
   $resultContainer.hide();
 }
-
 
 //****SUBMITTING CHOICES */
 dumplingApp.submitChoices = function() {
@@ -196,10 +217,8 @@ dumplingApp.displayCountries = function(filteredResults) {
           <div class="imageResultContainer">
             <img src="assets/dumplingVecteezyTwo.png" alt="anthropomorphized dumpling from Vecteezy.com"></>
             <div>
-              <p class="finalIntro ellipses">Waiting for your pick!</p>
-              <p class="recipe">
-                
-              </p>
+              <p class="finalIntro">Waiting for your pick!</p>
+              <p class="recipe"></p>
             </div>
           </div>
         `
@@ -221,32 +240,45 @@ dumplingApp.displayFinal = function() {
 		const countrySelected = $(this).val();
 		countryResults.forEach((result) => {
 			if (result.origin === countrySelected) {
-				$('.recipe').empty();
-
-				//adding the recipe + "Start over?" button
-				$('.finalIntro').text(`Here's your recipe! ⬇`);
-				$('.recipe').html(`<a href="${result.recipe}">${result.name}</a>`);
+        dumplingApp.displayName('dinner', result);
 			}
 		});
 		// adding a start over button
 		$bottomButton.html(`
-            <p class="tryAgain">
-              <a href="#startJourney">start over?</a>
-            </p>
-            <button class="dessert">
-              room for dessert?
-            </button>
-        `);
-	});
+      <p class="tryAgain">
+        <a href="#startJourney">start over?</a>
+      </p>
+      <button class="dessert">
+        room for dessert?
+      </button>
+    `);
+  });
+
+  $('body').delegate('.dessert', 'click', function() {
+    const dessertChoice = dumplingApp.randomDessert(dumplings.dessert);
+    dumplingApp.displayName('dessert', dessertChoice)
+})
 };
   
-  // ON DESSERT CLICK, pick a random number between 0 and the dessert array link
-  // post the recipe and result name of dessert
-//   $('.dessert').on('click', function(e) {
 
-//     const randomNumber = Math.ceil(Math.random())
-//   })
-// };
+dumplingApp.displayName = function(typeOfMeal, arrayResult) {
+  $('.recipe').empty();
+
+	//adding the recipe + "Start over?" button
+	$('.finalIntro').text(`⬇ Your ${typeOfMeal} recipe ⬇`);
+	$('.recipe').html(`<a href="${arrayResult.recipe}">${arrayResult.name}</a>`);
+}
+
+
+
+// ON DESSERT CLICK, pick a random number between 0 and the dessert array link
+// post the recipe and result name of dessert
+dumplingApp.randomDessert = function(arrayName) {
+  const index = Math.floor(Math.random() * arrayName.length);
+  console.log(index);
+  return arrayName[index];
+}
+
   
 //***SCROLLING TO BOTTOM ON CLICK
 dumplingApp.scrollBottom = function() {
@@ -271,7 +303,7 @@ dumplingApp.init = function() {
   // SMOOTH ANIMATE SCROLLING - FROM VARIOUS W3 SCHOOLS + STACK OVERFLOW SOURCES  
   $('a').on('click', function (e) {
     // Make sure this's ID hash has a value before overriding default behavior
-    if (this.hash !== "") {
+    if (this.hash !== '') {
     // Store hash
       const hash = this.hash;
       e.preventDefault();
