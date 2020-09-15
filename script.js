@@ -158,16 +158,16 @@ dumplingApp.submitChoices = function() {
     $resultContainer.show(); 
     // get value of meat || veggie or both and put in variables
     if ($('input[value=veg]:checked').val() && $('input[value=meat]:checked').val()) {
-      dumplingApp.fillingType = "both";
+      dumplingApp.fillingType = 'both';
     } else if ($('input[value=meat]:checked').val()) {
-      dumplingApp.fillingType = "meat";
+      dumplingApp.fillingType = 'meat';
     } else {
-      dumplingApp.fillingType = "veg";
+      dumplingApp.fillingType = 'veg';
     }
 
     const chosenDumplingType = dumplings[dumplingApp.dumplingType];
     // populates countryResults array with appropriate dumplings -- a selection of "both" will include everything in the chosenDumplingType array
-    if (dumplingApp.fillingType === "both") {
+    if (dumplingApp.fillingType === 'both') {
       countryResults = chosenDumplingType;
     } else {
     // if user selects meat OR veg choice, this cycles through the object for relevant filling choices  
@@ -278,7 +278,6 @@ dumplingApp.displayName = function(typeOfMeal, arrayResult) {
 // post the recipe and result name of dessert
 dumplingApp.randomDessert = function(arrayName) {
   const index = Math.floor(Math.random() * arrayName.length);
-  console.log(index);
   return arrayName[index];
 }
 
@@ -306,7 +305,7 @@ dumplingApp.init = function() {
   // SMOOTH ANIMATE SCROLLING - FROM VARIOUS W3 SCHOOLS + STACK OVERFLOW SOURCES  
   $('a').on('click', function (e) {
     // Make sure this's ID hash has a value before overriding default behavior
-    if (this.hash !== '') {
+    if (this.hash !== "") {
     // Store hash
       const hash = this.hash;
       e.preventDefault();
