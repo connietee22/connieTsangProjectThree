@@ -192,6 +192,7 @@ a {
         label {
             font-size: clamp(1.6rem, 2vw, 2rem);
             width: calc((100% - 55px) / 2);
+            min-width: 150px;
             color: $primary;
             background-color: $secondary;
             border-radius: 5px;
