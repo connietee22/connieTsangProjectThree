@@ -194,38 +194,18 @@ textarea {
   padding: .2em 0;
 }
 
-.clearfix:after {
-  visibility: hidden;
-  display: block;
-  font-size: 0;
-  content: '';
-  clear: both;
-  height: 0;
-}
-
 * {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
 
-.visuallyHidden:not(:focus):not(:active) {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  margin: -1px;
-  border: 0;
-  padding: 0;
-  white-space: nowrap;
-  -webkit-clip-path: inset(100%);
-          clip-path: inset(100%);
-  clip: rect(0 0 0);
-  overflow: hidden;
+html {
+  font-size: 62.5%;
 }
 
-html {
+body {
   padding: 0;
   margin: 0;
-  font-size: 62.5%;
 }
 
 .wrapper {
@@ -238,8 +218,7 @@ h1,
 p,
 a,
 button,
-[type=submit],
-ellipses {
+[type=submit] {
   font-family: 'McLaren', cursive;
   text-transform: uppercase;
   -webkit-text-decoration-style: none;
@@ -460,7 +439,6 @@ a:focus {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  padding: 0px;
   margin-right: 40px;
   width: calc(40% - 40px);
   text-align: center;
@@ -486,12 +464,12 @@ a:focus {
 .countries .countriesFlex label {
   font-size: clamp(1.6rem, 2vw, 2rem);
   width: calc((100% - 55px) / 2);
-  margin: 8px auto;
-  background-color: #f4e6b7;
   color: #a48c63;
-  text-align: center;
+  background-color: #f4e6b7;
   border-radius: 5px;
+  margin: 8px auto;
   padding: 5px 20px;
+  text-align: center;
 }
 
 .countries input {
@@ -525,13 +503,12 @@ a:focus {
 .finalDumpling a {
   font-size: clamp(3rem, 3vw, 4rem);
   width: 100%;
-  padding: 0px;
+  display: block;
+  background: -webkit-gradient(linear, left bottom, left top, color-stop(50%, #f4e6b7), color-stop(50%, white));
+  background: linear-gradient(to top, #f4e6b7 50%, white 50%);
   border: 0px;
   text-shadow: 3px 3px #333;
   text-decoration: none;
-  background: -webkit-gradient(linear, left bottom, left top, color-stop(50%, #f4e6b7), color-stop(50%, white));
-  background: linear-gradient(to top, #f4e6b7 50%, white 50%);
-  display: block;
   word-break: break-word;
 }
 
@@ -546,10 +523,10 @@ a:focus {
 }
 
 .bottomButton {
-  justify-self: flex-end;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  justify-self: flex-end;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -560,6 +537,7 @@ a:focus {
 .bottomButton a {
   font-size: clamp(1.5rem, 1.5vw, 1.5rem);
   width: 200px;
+  background: #fff;
   text-shadow: none;
   text-decoration: none;
   -webkit-box-shadow: 3px 3px 0px #f4e6b7;
@@ -567,7 +545,6 @@ a:focus {
   border-radius: 5px;
   padding: 5px 10px;
   margin: 20px;
-  background: #fff;
 }
 
 .bottomButton p {
@@ -587,13 +564,13 @@ a:focus {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  max-width: 600px;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  max-width: 600px;
 }
 
 .imageResultContainer img {
@@ -610,14 +587,14 @@ a:focus {
 }
 
 footer {
-  min-height: 40px;
-  background-color: #333;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  min-height: 40px;
+  background-color: #333;
   margin: 0 auto;
   padding: 10px 0px;
 }
@@ -643,12 +620,12 @@ footer p {
   color: #f4e6b7;
 }
 
-footer a {
-  cursor: pointer;
-}
-
 footer p {
   padding: 0px 5px;
+}
+
+footer p a:hover {
+  cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'  width='40' height='48' viewport='0 0 100 100' style='fill:black;font-size:24px;'><text y='50%'>🥟</text></svg>") 16 0, auto;
 }
 
 @media (max-width: 1125px) {
