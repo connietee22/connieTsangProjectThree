@@ -7,4 +7,4 @@ Connie Tsang
 ### Tools used:
 jQuery
 HTML5
-CSS3
+SCSS
